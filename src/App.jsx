@@ -43,7 +43,106 @@ const projects = [
 export default function App(){
   const [menuOpen, setMenuOpen] = useState(false)
   const [showBlogForm, setShowBlogForm] = useState(false)
+  const [selectedBlog, setSelectedBlog] = useState(null)
   const [blogs, setBlogs] = useState([
+    {
+      id: 4,
+      slug: 'how-developers-adapt-to-ai-challenges',
+      title: 'How Developers Adapt to AI Challenges in 2025 | MERN Stack Perspective',
+      excerpt: 'A developer\'s honest take on using AI in MERN stack projects, freelance workflows, and the "will AI replace us" question. No hype, just what\'s actually happening.',
+      date: 'Apr 1, 2026',
+      category: 'Developer Insights',
+      readTime: '7 min read',
+      content: `There's a version of this conversation that happens on Twitter every few weeks. Someone posts a clip of GPT-4 generating a full React component in 11 seconds. The replies split predictably — half the devs say "we're cooked," the other half explain why it doesn't count. Then everyone moves on until it happens again.
+
+I've been building with the MERN stack for a couple of years, freelancing on the side while finishing my CS degree in Mumbai. I've watched this loop enough times that I stopped finding it interesting. The honest answer — the one that doesn't perform well on Twitter — is nowhere near as dramatic as either side makes it.
+
+AI didn't replace developers. It changed what a developer's day actually looks like. The people struggling right now mostly didn't notice the shift until it had already settled in.
+
+---
+
+## It Started With Copilot Being Annoying
+
+When GitHub Copilot launched in 2021, most developers I knew either ignored it or mocked it. The completions were unreliable. You'd ask it for a simple Express route and it would confidently generate something that almost worked — which is the most dangerous kind of wrong. You'd accept it, miss the bug, and spend 40 minutes debugging something you didn't write.
+
+By 2023, the tone had changed. ChatGPT could take a description of a MongoDB schema and produce reasonable Mongoose models. It could explain a React hook in plain English better than most documentation. It could spot an async/await mistake faster than Stack Overflow. That's when the real anxiety started — not among engineers who'd been doing this for a decade, mostly among people earlier in their careers who hadn't had time to build the judgment that AI still can't replicate.
+
+The question everyone was asking — "will AI replace developers?" — missed the point. The better question is which parts of development are being automated, and what that leaves behind.
+
+AI is good at the parts of development that are boring and expensive to get wrong. Boilerplate. CRUD routes. Writing tests for code you already understand. Converting a REST endpoint to handle a new data shape. That kind of work.
+
+It falls apart at everything requiring context — your specific database structure, your client's weird edge case, the reason a piece of code was written the way it was three months ago. It has no memory of last week's conversation. It doesn't know your client changed their mind about the schema twice and that's why the models look the way they do.
+
+The developers who are actually being displaced aren't mid-level engineers with years of project context. They're the ones doing entry-level ticket-closing work — the exact work AI does cheapest. That's a real problem for the industry's talent pipeline. It's just a different problem than most people are talking about.
+
+---
+
+## What It Actually Looks Like on a Real MERN Project
+
+On a recent freelance build — a web app for a fashion boutique client — I used Claude and Copilot throughout. Here's what that actually broke down to.
+
+**Where it saved real time:**
+
+Setting up the Express backend structure took 20 minutes instead of an hour. Not because AI wrote it for me — I described what I needed (product listings, user auth, order management) and it gave me a scaffold I could critique and modify. That's different from just accepting output blindly.
+
+Tailwind class combinations for responsive card layouts. I know Tailwind well, but I still end up back-and-forth-ing on spacing and breakpoints. Having something suggest \`md:grid-cols-2 lg:grid-cols-3 gap-6\` that I can immediately evaluate cuts that loop down.
+
+First drafts of API documentation. Nobody loves this. AI handles it fine.
+
+**Where it made things worse:**
+
+MongoDB aggregation pipelines for anything beyond basic grouping. The output looks right. It frequently isn't. I write these myself now and only use AI to explain what broke when something fails.
+
+Auth logic. The suggestions are often outdated — JWT handling without refresh token rotation, bcrypt config that was standard in 2020. I don't let AI near auth without reviewing every line.
+
+React state involving more than two components. It solves the immediate problem and plants a prop-drilling issue three levels up. It doesn't see the whole tree, and it won't tell you that.
+
+What actually works: use AI to move fast on the parts you already understand well, and go slow and manual on the parts you don't. Most developers do the opposite — they reach for AI hardest when they're least confident, which is exactly when they can't evaluate whether the output is correct.
+
+---
+
+## The Freelance Side Nobody Talks About
+
+There's a part of freelance development that rarely comes up in the "AI vs developers" debate — the work that isn't coding.
+
+Client emails. Proposals. Explaining a technical decision to someone who doesn't code. Scope documents. These take real time, and none of it is billable at the same rate as building features.
+
+AI has made this faster. Not perfect — you still need to know what you want to say before you can edit a draft into something accurate. But a proposal that used to take two hours from scratch now takes 40 minutes when you start with something to react to. That's a real difference across a week of client work.
+
+The harder question is pricing. If AI helps you ship faster, do you charge less? Most experienced freelancers say no — you charge for the outcome, not the hours. A client doesn't care whether the login page took four hours or twelve. They care if it works and doesn't break.
+
+The pressure is real though, especially if you're newer. I've seen listings on Upwork where clients expect a full MERN stack web app for ₹5,000 because someone told them AI could build it in a day. Maybe it can build something in a day. Whether that something actually runs in production, handles edge cases, and doesn't expose user data is a separate question.
+
+Chasing that work is a bad idea. The clients who want ₹5,000 for a full stack app are also the ones who come back with 30 change requests after delivery and no budget for any of them. The work AI can fully automate also tends to produce the most support problems when things go wrong and there's no developer who actually understands what was built.
+
+Being specific about what you know — MERN stack, REST APIs, particular project types — brings in clients who are paying for expertise, not just output. Those clients exist. They're not at the top of every Fiverr search, but they're findable.
+
+---
+
+## What Adaptation Actually Looks Like Day to Day
+
+The developers who seem to be doing fine aren't doing anything unusual. They use AI as a first draft, not a final answer. They've made reviewing AI output a normal part of the job rather than a sign that something went wrong. A senior dev I know calls it hiring a very fast, very overconfident junior who needs everything checked. That's a fair description.
+
+They've also gotten more deliberate about the parts AI still can't touch. System design. Client conversations. Knowing why code exists, not just what it does. Database decisions that need to account for how data will be queried six months from now when requirements have shifted twice. That kind of judgment comes from watching real things fail in real ways, and no model has that context loaded.
+
+The developers who seem most rattled are usually the ones who've spent the least time actually using these tools. There's something genuinely clarifying about building with AI daily. You get a feel pretty fast for where it helps and where it quietly makes things worse. That's harder to be afraid of than the abstract version people argue about online.
+
+---
+
+## One More Thing Worth Saying
+
+I don't know what development looks like in two years. If someone tells you they do, that's a newsletter subscription pitch, not a prediction.
+
+What seems reasonable: developers who treat AI as a tool they understand are in a different position than those who treat it as something happening to them. That's not a dramatic conclusion. Most true things about careers aren't.
+
+The MERN stack isn't going anywhere. Full stack web development isn't going anywhere. The projects I actually work on — custom web apps for startups, client sites, freelance builds — still need someone to understand the problem, make architecture calls, and catch the things a model confidently got wrong.
+
+The floor changed. Boilerplate is cheaper now. That means the judgment calls matter more than they did before. Fine by me — the boilerplate was never the interesting part.
+
+---
+
+*Ritesh Jha is a Computer Engineering student and freelance MERN stack developer based in Mumbai. He builds React and Node.js web apps for startups and small businesses across India — [jharitesh.me](https://jharitesh.me)*`
+    },
     {
       id: 1,
       title: 'How I Built CodeLive — A Real-Time Collaborative Coding Platform',
@@ -698,7 +797,7 @@ export default function App(){
           {/* Blog Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {blogs.map((blog) => (
-              <article key={blog.id} className="glass-card rounded-2xl p-5 sm:p-6 md:p-8 flex flex-col justify-between group cursor-pointer">
+              <article key={blog.id} className="glass-card rounded-2xl p-5 sm:p-6 md:p-8 flex flex-col justify-between group cursor-pointer" onClick={() => setSelectedBlog(blog)}>
                 <div>
                   <div className="flex items-center gap-3 mb-4">
                     <span className="px-3 py-1 bg-neon-blue/10 border border-neon-blue/20 text-neon-blue text-[10px] sm:text-xs font-bold uppercase tracking-wider rounded-full">{blog.category}</span>
@@ -763,6 +862,52 @@ export default function App(){
                     Publish Post <span aria-hidden="true">🚀</span>
                   </button>
                 </form>
+              </div>
+            </div>
+          )}
+
+          {/* Read Blog Modal */}
+          {selectedBlog && (
+            <div className="fixed inset-0 z-[60] flex items-center justify-center bg-black/70 backdrop-blur-sm px-4 py-8" onClick={() => setSelectedBlog(null)}>
+              <div
+                className="glass-card rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-10 w-full max-w-3xl max-h-full overflow-y-auto border border-neon-blue/20 custom-scrollbar"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <div className="flex items-center justify-between mb-6">
+                  <div className="flex gap-3 items-center">
+                    <span className="px-3 py-1 bg-neon-blue/10 border border-neon-blue/20 text-neon-blue text-[10px] sm:text-xs font-bold uppercase tracking-wider rounded-full">{selectedBlog.category}</span>
+                    <span className="text-gray-500 text-[10px] sm:text-xs">{selectedBlog.readTime}</span>
+                  </div>
+                  <button onClick={() => setSelectedBlog(null)} className="text-gray-500 hover:text-white transition-colors p-1">
+                    <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" /></svg>
+                  </button>
+                </div>
+                <h3 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 leading-tight">{selectedBlog.title}</h3>
+                <div className="flex items-center gap-2 mb-8 text-gray-400 text-xs sm:text-sm">
+                  <span>Ritesh Jha</span>
+                  <span>•</span>
+                  <span>{selectedBlog.date}</span>
+                </div>
+                <div className="text-gray-300 text-sm sm:text-base leading-relaxed">
+                  {selectedBlog.content ? selectedBlog.content.split('\n').map((line, i) => {
+                    if (line.trim() === '') return <div key={i} className="h-4"></div>;
+                    if (line.startsWith('## ')) return <h2 key={i} className="text-xl sm:text-2xl font-bold text-white mt-8 mb-4">{line.replace('## ', '')}</h2>;
+                    if (line.startsWith('---')) return <hr key={i} className="my-8 border-white/10" />;
+                    if (line.startsWith('*Ritesh Jha')) return <p key={i} className="italic text-gray-400 border-t border-white/5 pt-4 mt-8">{line.replace(/\*/g, '').replace(/\[(.*?)\]\((.*?)\)/g, '$1')}</p>;
+                    let text = [];
+                    let parts = line.split(/(\*\*.*?\*\*|`.*?`)/g);
+                    parts.forEach((part, j) => {
+                      if (part.startsWith('**') && part.endsWith('**')) {
+                        text.push(<strong key={j} className="text-white font-semibold">{part.slice(2, -2)}</strong>);
+                      } else if (part.startsWith('`') && part.endsWith('`')) {
+                        text.push(<code key={j} className="bg-white/10 text-neon-blue px-1.5 py-0.5 rounded text-xs sm:text-sm">{part.slice(1, -1)}</code>);
+                      } else {
+                        text.push(part);
+                      }
+                    });
+                    return <p key={i} className="mb-4">{text}</p>;
+                  }) : <p>{selectedBlog.excerpt}</p>}
+                </div>
               </div>
             </div>
           )}
