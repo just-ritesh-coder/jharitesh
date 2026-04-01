@@ -3,25 +3,137 @@
   <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Freelance Web Developer Mumbai | India | Hire MERN Stack Developer</title>
+
+    <!-- ============================================================
+         PRIMARY SEO — Title + Description
+         Title: 58 chars (Google shows ~60 max)
+         Description: 148 chars (Google shows ~155 max)
+    ============================================================ -->
+    <title>Ritesh Jha — Freelance Web Developer Mumbai | MERN Stack</title>
     <meta
-      content="Freelance web developer based in Mumbai, India. Specialized in high-performance MERN stack applications. Hire a freelance web developer in India for custom web apps and startups."
       name="description"
+      content="Mumbai-based freelance web developer. I build React and Node.js web apps for startups and small businesses across India. Fast delivery, clean code, no agency overhead."
     />
-    <meta name="keywords" content="freelance website developer India, hire MERN stack developer, web developer Mumbai, React Node.js developer, freelance full stack developer" />
+
+    <!-- ============================================================
+         EXTENDED META
+    ============================================================ -->
+    <meta name="author" content="Ritesh Jha" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#050505" />
+    <link rel="canonical" href="https://jharitesh.me/" />
+
+    <!-- Keywords: tier 1 Mumbai + India geo mix -->
+    <meta
+      name="keywords"
+      content="freelance web developer Mumbai, hire MERN stack developer India, React Node.js developer Mumbai, freelance full stack developer India, web developer near me Mumbai, custom web app developer India, hire web developer for startup India"
+    />
+
+    <!-- Google Search Console Verification -->
     <meta name="google-site-verification" content="MLbNdO4i9Xbl00yBBUBM9OTTLQveG_lYsUOdkxOi22s" />
-    
-    <!-- Open Graph / Facebook -->
+
+    <!-- ============================================================
+         OPEN GRAPH — Facebook / LinkedIn / WhatsApp
+         og:description is intentionally different from meta description
+         (each channel gets a version tuned for that audience)
+    ============================================================ -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://jharitesh.me/" />
-    <meta property="og:title" content="Freelance Website Developer India | MERN Stack | React & Node.js" />
-    <meta property="og:description" content="Web developer based in Mumbai, India. I build fast, custom websites and web apps using React, Node.js, and MongoDB. Open to freelance projects and short-term contracts." />
+    <meta property="og:site_name" content="Ritesh Jha — Web Developer" />
+    <meta property="og:title" content="Freelance Web Developer Mumbai | MERN Stack — Ritesh Jha" />
+    <meta
+      property="og:description"
+      content="I'm a freelance web developer in Mumbai. React, Node.js, MongoDB — full stack. Available for startup projects, custom web apps, and short-term contracts across India."
+    />
+    <meta property="og:image" content="https://jharitesh.me/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Ritesh Jha — Freelance Web Developer Mumbai" />
+    <meta property="og:locale" content="en_IN" />
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://jharitesh.me/" />
-    <meta property="twitter:title" content="Freelance Website Developer India | MERN Stack | React & Node.js" />
-    <meta property="twitter:description" content="Web developer based in Mumbai, India. I build fast, custom websites and web apps using React, Node.js, and MongoDB. Open to freelance projects and short-term contracts." />
+    <!-- ============================================================
+         TWITTER / X CARD
+         Different description again — Twitter audience is more casual
+    ============================================================ -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://jharitesh.me/" />
+    <meta name="twitter:title" content="Ritesh Jha — Freelance MERN Stack Developer, Mumbai" />
+    <meta
+      name="twitter:description"
+      content="Web developer from Mumbai. I build fast, custom web apps with React and Node.js. Startup-friendly rates. Open to freelance work across India."
+    />
+    <meta name="twitter:image" content="https://jharitesh.me/og-image.jpg" />
+    <meta name="twitter:creator" content="@jharitesh" />
+
+    <!-- ============================================================
+         JSON-LD STRUCTURED DATA
+         Person schema + WebSite schema
+         This is what puts your name in Google's knowledge panel
+         and enables sitelinks search box
+    ============================================================ -->
+    <script type="application/ld+ json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://jharitesh.me/#person",
+          "name": "Ritesh Jha",
+          "url": "https://jharitesh.me/",
+          "image": "https://jharitesh.me/og-image.jpg",
+          "jobTitle": "Freelance Web Developer",
+          "description": "Freelance MERN stack web developer based in Mumbai, India. Builds React and Node.js web apps for startups and small businesses.",
+          "knowsAbout": ["React.js", "Node.js", "MongoDB", "Express.js", "MERN Stack", "JavaScript", "Web Development"],
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Mumbai",
+            "addressRegion": "Maharashtra",
+            "addressCountry": "IN"
+          },
+          "sameAs": [
+            "https://github.com/jharitesh",
+            "https://linkedin.com/in/jharitesh"
+          ],
+          "offers": {
+            "@type": "Offer",
+            "name": "Freelance Web Development",
+            "description": "Custom web app development using React, Node.js, and MongoDB for startups and small businesses in India.",
+            "areaServed": {
+              "@type": "Country",
+              "name": "India"
+            },
+            "availableAtOrFrom": {
+              "@type": "Place",
+              "name": "Mumbai, Maharashtra, India"
+            }
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://jharitesh.me/#website",
+          "url": "https://jharitesh.me/",
+          "name": "Ritesh Jha — Freelance Web Developer Mumbai",
+          "description": "Portfolio of Ritesh Jha, a freelance MERN stack web developer based in Mumbai, India.",
+          "author": {
+            "@id": "https://jharitesh.me/#person"
+          },
+          "inLanguage": "en-IN",
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://jharitesh.me/?s={search_term_string}"
+            },
+            "query-input": "required name=search_term_string"
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- ============================================================
+         FONTS + TAILWIND
+    ============================================================ -->
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link crossorigin href="https://fonts.gstatic.com" rel="preconnect" />
@@ -29,6 +141,7 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Outfit:wght@300;400;700;900&display=swap"
       rel="stylesheet"
     />
+
     <script>
       tailwind.config = {
         theme: {
@@ -48,6 +161,7 @@
       };
     </script>
   </head>
+
   <body class="bg-space-black text-white font-sans overflow-x-hidden">
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
