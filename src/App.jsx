@@ -289,7 +289,7 @@ export default function App(){
               Personal Information
             </h3>
             <p className="text-gray-400 text-sm sm:text-base md:text-lg leading-relaxed max-w-3xl mb-8 sm:mb-10">
-              I'm Ritesh Kumar Jha, a **freelance web developer Mumbai** and a 3rd-year Computer Science student at Universal College of Engineering. I'm passionate about full-stack development and love working on real-world problems. As a **freelance MERN stack developer**, I'm available for hire for project-based work, specifically for startups and small businesses looking for custom web application development affordable in India.
+              I'm Ritesh Kumar Jha, a <strong className="text-white font-semibold">freelance web developer Mumbai</strong> and a 3rd-year Computer Science student at Universal College of Engineering. I'm passionate about full-stack development and love working on real-world problems. As a <strong className="text-white font-semibold">freelance MERN stack developer</strong>, I'm available for hire for project-based work, specifically for startups and small businesses looking for custom web application development affordable in India.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
@@ -643,20 +643,32 @@ export default function App(){
             <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-3 sm:mb-4">HIRE FREELANCE WEB DEVELOPER INDIA</h2>
             <p className="text-gray-400 text-sm sm:text-base">Looking for an **affordable web developer Mumbai**? Ready to ship something fast? Initiate contact sequence below.</p>
           </div>
-          <form className="space-y-4 sm:space-y-6 md:space-y-8" onSubmit={(e) => { e.preventDefault(); alert('Message sent — thank you!') }}>
+          <form
+            className="space-y-4 sm:space-y-6 md:space-y-8"
+            onSubmit={(e) => {
+              e.preventDefault();
+              const formData = new FormData(e.target);
+              const name = formData.get('pilotName');
+              const email = formData.get('email');
+              const message = formData.get('message');
+              const text = `Hello! I have a new project enquiry:\n\n*Pilot Name:* ${name}\n*Email:* ${email}\n*Mission Parameters:* ${message}`;
+              const whatsappUrl = `https://wa.me/919588499371?text=${encodeURIComponent(text)}`;
+              window.open(whatsappUrl, '_blank');
+            }}
+          >
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
               <div className="space-y-2">
                 <label className="text-[10px] font-bold tracking-[0.3em] text-gray-500 uppercase ml-2">Pilot Name</label>
-                <input className="w-full bg-black/50 border border-white/10 rounded-xl px-4 sm:px-6 py-3 sm:py-4 focus:ring-1 focus:ring-neon-blue focus:border-neon-blue outline-none transition-all placeholder:text-gray-700 text-sm sm:text-base" placeholder="e.g. John Doe" type="text" required />
+                <input name="pilotName" className="w-full bg-black/50 border border-white/10 rounded-xl px-4 sm:px-6 py-3 sm:py-4 focus:ring-1 focus:ring-neon-blue focus:border-neon-blue outline-none transition-all placeholder:text-gray-700 text-sm sm:text-base" placeholder="e.g. John Doe" type="text" required />
               </div>
               <div className="space-y-2">
                 <label className="text-[10px] font-bold tracking-[0.3em] text-gray-500 uppercase ml-2">Frequency (Email)</label>
-                <input className="w-full bg-black/50 border border-white/10 rounded-xl px-4 sm:px-6 py-3 sm:py-4 focus:ring-1 focus:ring-neon-blue focus:border-neon-blue outline-none transition-all placeholder:text-gray-700 text-sm sm:text-base" placeholder="john@nebula.com" type="email" required />
+                <input name="email" className="w-full bg-black/50 border border-white/10 rounded-xl px-4 sm:px-6 py-3 sm:py-4 focus:ring-1 focus:ring-neon-blue focus:border-neon-blue outline-none transition-all placeholder:text-gray-700 text-sm sm:text-base" placeholder="john@nebula.com" type="email" required />
               </div>
             </div>
             <div className="space-y-2">
               <label className="text-[10px] font-bold tracking-[0.3em] text-gray-500 uppercase ml-2">Mission Parameters</label>
-              <textarea className="w-full bg-black/50 border border-white/10 rounded-xl px-4 sm:px-6 py-3 sm:py-4 focus:ring-1 focus:ring-neon-blue focus:border-neon-blue outline-none transition-all placeholder:text-gray-700 text-sm sm:text-base" placeholder="Describe the project scope, timeline, and goals..." rows="4" required />
+              <textarea name="message" className="w-full bg-black/50 border border-white/10 rounded-xl px-4 sm:px-6 py-3 sm:py-4 focus:ring-1 focus:ring-neon-blue focus:border-neon-blue outline-none transition-all placeholder:text-gray-700 text-sm sm:text-base" placeholder="Describe the project scope, timeline, and goals..." rows="4" required />
             </div>
             <button className="w-full py-4 sm:py-5 md:py-6 bg-white text-black font-black uppercase tracking-widest text-sm sm:text-base md:text-lg hover:bg-neon-blue transition-all active:scale-95 flex items-center justify-center gap-3 sm:gap-4" type="submit">
               ENGAGE IGNITION <span className="text-xl sm:text-2xl" aria-hidden="true">⚡</span>
