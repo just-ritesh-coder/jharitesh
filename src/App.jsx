@@ -19,7 +19,7 @@ const projects = [
     number: '02',
     title: 'EZYRIDE',
     desc:
-      'Ride-sharing platform with authentication, booking, live status updates, OTP verification, SOS alerts, and fare calculation.',
+      'Ride-sharing platform built with MERN stack India. Features authentication, booking, live status updates, and SOS alerts — a custom web app built with React Node.js MongoDB.',
     tags: ['NODE', 'REST API', 'MONGODB'],
     metric: 'SPEED: < 200MS LATENCY (TARGET)',
     href: 'https://ezyride-rouge.vercel.app/',
@@ -31,7 +31,7 @@ const projects = [
     number: '03',
     title: 'JHA PROJECTS',
     desc:
-      'Premium web development agency delivering high-performance business sites, branding, SEO and scalable MERN builds.',
+      'Premium web development agency in Mumbai delivering high-performance business sites, branding, and custom MERN builds. Affordable website development for startups.',
     tags: ['MERN', 'SEO', 'PERFORMANCE'],
     metric: 'DELIVERY: CLIENT-FIRST BUILD SYSTEM',
     href: 'https://jhaprojects.in/',
@@ -167,17 +167,17 @@ export default function App(){
 
           {/* Role */}
           <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-light text-gray-300 tracking-tight">
-            Full-Stack Developer
+            <span className="text-neon-blue font-semibold">Freelance Web Developer Mumbai</span> | MERN Stack Specialist
           </h2>
 
           {/* Tagline */}
           <p className="text-gray-400 text-sm sm:text-base md:text-lg font-light">
-            MERN Stack Developer · Building Real-Time Web Applications
+            Hire Freelance Web Developer India | React · Node.js · MongoDB · Express | Building Scalable Web Apps
           </p>
 
           {/* Bio — short & catchy */}
           <p className="text-gray-400 max-w-xl text-sm sm:text-base leading-relaxed font-light">
-            I'm a Full-Stack Developer who builds real-time, scalable web applications using the MERN Stack. From collaborative coding platforms to ride-sharing apps — I turn ideas into clean, impactful digital experiences.
+            I'm a **freelance full stack developer in Mumbai** specialized in the MERN stack. I build fast, custom websites and web apps. If you're looking for a **web developer near me** or need a high-performance **MERN stack developer India**, I'm available for hire for startups and business projects.
           </p>
 
           {/* Location */}
@@ -292,7 +292,7 @@ export default function App(){
               Personal Information
             </h3>
             <p className="text-gray-400 text-sm sm:text-base md:text-lg leading-relaxed max-w-3xl mb-8 sm:mb-10">
-              I'm Ritesh Kumar Jha, a 3rd-year Computer Science student at Universal College of Engineering, Mumbai. I'm passionate about full-stack development and love working on real-world problems. Outside of coding, I enjoy exploring new tech, building side projects, and helping local businesses grow through my agency — Jha Projects. I'm currently open to internship and full-time opportunities where I can contribute, learn, and grow.
+              I'm Ritesh Kumar Jha, a **freelance web developer Mumbai** and a 3rd-year Computer Science student at Universal College of Engineering. I'm passionate about full-stack development and love working on real-world problems. As a **freelance MERN stack developer**, I'm available for hire for project-based work, specifically for startups and small businesses looking for custom web application development affordable in India.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
@@ -377,16 +377,16 @@ export default function App(){
               </h2>
             </div>
             <p className="text-gray-500 max-w-md md:text-right font-light text-sm sm:text-base">
-              Real-time performance instincts across the stack. Optimization is not optional; it's the baseline.
+              Freelance full stack developer India. Real-time performance instincts across the stack. I build as a custom website developer India for startups and small businesses.
             </p>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
             {[
-              { name: 'MONGODB', label: 'Data Architecture', value: '85%', offset: 50 },
-              { name: 'EXPRESS.JS', label: 'Server Logic', value: '92%', offset: 30 },
-              { name: 'REACT', label: 'Interface Engine', value: '98%', offset: 10 },
-              { name: 'NODE.JS', label: 'Async Processing', value: '90%', offset: 35 }
+              { name: 'MONGODB', label: 'Hire MongoDB Developer', value: '85%', offset: 50 },
+              { name: 'EXPRESS.JS', label: 'Node.js Developer for Hire', value: '92%', offset: 30 },
+              { name: 'REACT', label: 'Freelance React Developer', value: '98%', offset: 10 },
+              { name: 'NODE.JS', label: 'REST API Developer Node.js', value: '90%', offset: 35 }
             ].map((g) => (
               <div key={g.name} className="glass-card p-4 sm:p-6 md:p-10 rounded-2xl sm:rounded-3xl flex flex-col items-center text-center group">
                 <div className="relative w-20 h-20 sm:w-28 sm:h-28 md:w-32 md:h-32 mb-4 sm:mb-6">
@@ -551,7 +551,8 @@ export default function App(){
         <div className="max-w-7xl mx-auto">
           <div className="mb-12 sm:mb-20">
             <span className="text-neon-blue font-bold tracking-widest text-[10px] sm:text-xs uppercase">The Collection</span>
-            <h2 className="font-heading text-4xl sm:text-5xl md:text-7xl font-black mt-2">CURATED SHOWROOM</h2>
+            <h2 className="font-heading text-4xl sm:text-5xl md:text-7xl font-black mt-2">MERN STACK DEVELOPER INDIA</h2>
+            <p className="text-gray-400 mt-2">Curated web developer portfolio Mumbai — building scalable web apps with React & Node.js.</p>
           </div>
 
           <div className="space-y-16 sm:space-y-24 md:space-y-32">
@@ -642,8 +643,8 @@ export default function App(){
       <section className="py-16 sm:py-24 md:py-32 px-4 sm:px-6 relative" id="contact" data-purpose="contact-section">
         <div className="max-w-4xl mx-auto glass-card rounded-2xl sm:rounded-[40px] p-6 sm:p-8 md:p-16 border-t-2 border-t-neon-blue/40">
           <div className="text-center mb-8 sm:mb-12 md:mb-16">
-            <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-3 sm:mb-4">TRANSMISSION</h2>
-            <p className="text-gray-400 text-sm sm:text-base">Ready to ship something fast? Initiate contact sequence below.</p>
+            <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-3 sm:mb-4">HIRE FREELANCE WEB DEVELOPER INDIA</h2>
+            <p className="text-gray-400 text-sm sm:text-base">Looking for an **affordable web developer Mumbai**? Ready to ship something fast? Initiate contact sequence below.</p>
           </div>
           <form className="space-y-4 sm:space-y-6 md:space-y-8" onSubmit={(e) => { e.preventDefault(); alert('Message sent — thank you!') }}>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
@@ -766,7 +767,7 @@ export default function App(){
             <div className="font-heading font-black text-xl sm:text-2xl tracking-tighter">
               RITESH <span className="text-neon-blue">KUMAR JHA</span>
             </div>
-            <p className="text-gray-600 text-[10px] sm:text-xs uppercase tracking-widest mt-1">Full Stack Performance Engineering</p>
+            <p className="text-gray-600 text-[10px] sm:text-xs uppercase tracking-widest mt-1">Freelance Web Developer Mumbai | India</p>
           </div>
           <div className="flex gap-6 sm:gap-8 text-gray-400 text-sm">
             <a className="hover:text-neon-blue transition-colors" href="https://github.com/just-ritesh-coder" target="_blank" rel="noreferrer">Github</a>
