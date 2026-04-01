@@ -165,7 +165,92 @@ The floor changed. Boilerplate is cheaper now. That means the judgment calls mat
       excerpt: 'How I turned freelancing into a small agency, the lessons I learned about client management, delivering quality work, and growing a business while still in college.',
       date: 'Jan 15, 2026',
       category: 'Entrepreneurship',
-      readTime: '6 min read'
+      readTime: '6 min read',
+      content: `I didn't plan to start an agency.
+
+Most of these stories get written backwards — someone builds something, it works out, and then they reverse-engineer a narrative that makes it sound deliberate. "I always knew I wanted to build something of my own." That version is cleaner. It's also usually not true.
+
+The real version: I was a second-year Computer Engineering student at Universal College of Engineering in Vasai, Mumbai. I had the MERN stack down well enough to build things that actually worked. I had time, in that specific college way where you technically have a lot of it but it comes in weird broken chunks that don't feel productive. And I needed money.
+
+That's it. That's the founding story.
+
+---
+
+## Why I Started Freelancing
+
+The thing that pushed me was getting tired of building things no one used.
+
+College projects follow a loop — implement something, present it, get a grade, move on. You can run that loop for four years and get quite good at writing code without ever shipping something a real person has to interact with. I was learning. I wasn't sure I was building anything.
+
+When I put up my first freelance profile, I had no client history, no testimonials, and a portfolio made up almost entirely of academic work. I sent out around fifteen proposals in the first two weeks. Two people replied. Neither hired me.
+
+What I changed: I got specific. Instead of pitching myself as a "full stack developer available for projects" — which describes approximately everyone on the platform — I started writing about what I could actually build. MERN stack apps. React frontends. Node.js backends with REST APIs. Not a general offer, just an honest description of a specific skill set.
+
+Third week, someone hired me. A small business in Mumbai needed a product catalogue site — a few pages, a contact form, responsive. Budget was low. I took it.
+
+I learned more in those three weeks about what client work actually is than two years of coursework had managed. Not because the project was technically hard. Because it wasn't, and that turned out to be most of the problem.
+
+---
+
+## What Happened With That First Client
+
+The brief seemed clear. Five-page catalogue site, clean design, mobile-friendly. I built it. Sent it over. Felt good about it.
+
+The reply asked for the colour changed. Then the font. Then the homepage layout. Then back to the original layout with the new colour. Three revision rounds later I was working on a different website from the one we'd discussed, for the same price I'd quoted before I started.
+
+I wasn't angry at them. I was irritated at myself. I had no written brief. No scope document. Nothing about how many rounds of changes the price included. Just a vague phone call and an invoice I'd sent early.
+
+The client was actually fine — happy with the final site, left a decent review. But I'd worked maybe four times the hours I'd priced for. Every revision was reasonable from their side because I'd never drawn a line.
+
+I started writing scopes after that. Nothing formal — a short document saying what's in, what's not, two rounds of revisions included, 50% upfront. Client relationships got easier almost immediately. Not because clients changed, but because I stopped leaving things unspoken and then getting frustrated when they turned out differently than I'd assumed.
+
+---
+
+## What Jha Projects Actually Is
+
+I want to be straight about this, because it's easy to make it sound bigger than it is.
+
+Jha Projects is not an office. It's not a team. It's the name I operate under — a one-person web development operation run by a final-year CS student in Mumbai. I build websites and web apps, mostly MERN stack, for small businesses, startups, and individuals who need something properly built without paying agency rates.
+
+I named it something other than my own name partly because "Ritesh Jha, freelancer" signals side hustle, and partly because naming it forces you to treat it like a real thing. It has an identity. It has a standard. When I send a proposal as Jha Projects I feel more accountable to delivering something good than when I was sending proposals as just me.
+
+The work is web development — React frontends, Node.js and Express backends, MongoDB, REST APIs. I also do video editing separately, and I've been building out AI avatar video production for clients who want YouTube-style content. That's not inside Jha Projects technically, but it's part of why I started thinking in terms of services rather than one-off gigs.
+
+Where it is right now: small, real, mine. Built project by project while I was simultaneously figuring out how to write better code and how to talk to clients without making things worse.
+
+---
+
+## The Stuff I Didn't Expect to Learn
+
+Running client work alongside college taught me things I didn't see coming.
+
+The biggest one: clients don't care about your stack. I spent a lot of energy early on explaining why React was the right choice, why the backend was structured the way it was, why I'd used MongoDB over a relational database. They didn't want that. They wanted the site to load fast, look right on a phone, and make their business look like it wasn't built in 2009. Those are different criteria from what engineers think about, and I had to consciously learn to operate in both frames at once.
+
+Second thing: pricing low doesn't buy goodwill. I thought coming in cheap would make clients more forgiving of the fact that I was new. The opposite was closer to true. Clients who paid the least often had the most requests and the hardest feedback to work with. Clients who paid reasonable rates largely trusted me to deliver and left me alone to do it. I don't know exactly why that is, but it held consistently enough that I changed my pricing.
+
+Third thing surprised me most: communication beats quality when things go wrong. There were projects where something slipped — a deadline I'd underestimated, a feature that took longer than expected. The clients who had problems were the ones I'd gone quiet on while trying to fix things. The clients who were fine were the ones I'd messaged early: "this is taking longer than I thought, here's why, here's the new date." Same delay, completely different reaction.
+
+College doesn't teach that. There's no class where you practice telling someone their project is running late. You learn it by doing it wrong first.
+
+---
+
+## Why College Was Actually the Right Time to Start
+
+I'm finishing my degree this year. I'm also finishing a research paper on EzyRide — a MERN stack ride-sharing platform I built — for IJCRT. Both things wrapping up at the same time feels strange.
+
+Looking back: the main advantage of starting Jha Projects as a student wasn't some special energy or flexibility. I wasn't more available than someone working a job. I wasn't less stressed. I wasn't better at business.
+
+The advantage was that screwing up was cheap. That first project where I underpriced badly and over-delivered? I lost maybe ₹3,000 in effective hourly rate. It stung. It didn't ruin anything. I got the lesson cheap.
+
+The early clients who were difficult taught me to write scopes and hold boundaries. The proposals that went nowhere taught me to stop being vague. The projects that ran over taught me to communicate earlier. None of that required the work to go perfectly — just that I kept going after it didn't.
+
+I don't know what Jha Projects looks like in three years. Maybe it stays one person. Maybe it grows into something with collaborators. I'm not attached to either. I just want to keep building things that work for people who need them built.
+
+That's still the same reason I started.
+
+---
+
+*Ritesh Jha is a final-year Computer Engineering student at Universal College of Engineering, Vasai, Mumbai. He runs Jha Projects — a freelance web development operation specialising in MERN stack apps for startups and small businesses across India.* [jharitesh.me](https://jharitesh.me)`
     }
   ])
   const [newBlog, setNewBlog] = useState({ title: '', excerpt: '', category: '' })
