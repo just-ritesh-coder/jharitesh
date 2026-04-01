@@ -165,19 +165,16 @@ export default function App(){
             Ritesh Kumar Jha
           </h1>
 
-          {/* Role */}
           <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-light text-gray-300 tracking-tight">
-            <span className="text-neon-blue font-semibold">Freelance Web Developer Mumbai</span> | MERN Stack Specialist
+            <span className="text-neon-blue font-semibold">Freelance Web Developer, Mumbai</span>
           </h2>
 
-          {/* Tagline */}
-          <p className="text-gray-400 text-sm sm:text-base md:text-lg font-light">
-            Hire Freelance Web Developer India | React · Node.js · MongoDB · Express | Building Scalable Web Apps
+          <p className="text-gray-400 text-sm sm:text-base md:text-lg leading-relaxed max-w-xl font-light">
+            I'm Ritesh — a full stack developer based in Mumbai, working with the MERN stack. I build custom web apps and websites for startups and small businesses across India. React on the front, Node.js and Express on the back, MongoDB underneath. Fast, clean, no bloat.
           </p>
 
-          {/* Bio — short & catchy */}
-          <p className="text-gray-400 max-w-xl text-sm sm:text-base leading-relaxed font-light">
-            I'm a **freelance full stack developer in Mumbai** specialized in the MERN stack. I build fast, custom websites and web apps. If you're looking for a **web developer near me** or need a high-performance **MERN stack developer India**, I'm available for hire for startups and business projects.
+          <p className="text-gray-400 text-sm sm:text-base leading-relaxed max-w-xl font-light">
+            Available for freelance projects. If you're searching for a web developer in Mumbai or need a MERN stack developer for your next build, let's talk.
           </p>
 
           {/* Location */}

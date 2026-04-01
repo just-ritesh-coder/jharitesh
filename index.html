@@ -6,13 +6,14 @@
 
     <!-- ============================================================
          PRIMARY SEO — Title + Description
-         Title: 58 chars (Google shows ~60 max)
-         Description: 148 chars (Google shows ~155 max)
+         Title: 57 chars
+         Description: 152 chars
+         Tone: personal, first-person — not an ad
     ============================================================ -->
     <title>Ritesh Jha — Freelance Web Developer Mumbai | MERN Stack</title>
     <meta
       name="description"
-      content="Mumbai-based freelance web developer. I build React and Node.js web apps for startups and small businesses across India. Fast delivery, clean code, no agency overhead."
+      content="I'm Ritesh, a CS student and freelance web developer from Mumbai. I build React and Node.js web apps for startups and businesses across India. Clean code, no agency overhead."
     />
 
     <!-- ============================================================
@@ -23,7 +24,7 @@
     <meta name="theme-color" content="#050505" />
     <link rel="canonical" href="https://jharitesh.me/" />
 
-    <!-- Keywords: tier 1 Mumbai + India geo mix -->
+    <!-- Keywords: Tier 1 Mumbai + India geo mix -->
     <meta
       name="keywords"
       content="freelance web developer Mumbai, hire MERN stack developer India, React Node.js developer Mumbai, freelance full stack developer India, web developer near me Mumbai, custom web app developer India, hire web developer for startup India"
@@ -34,16 +35,15 @@
 
     <!-- ============================================================
          OPEN GRAPH — Facebook / LinkedIn / WhatsApp
-         og:description is intentionally different from meta description
-         (each channel gets a version tuned for that audience)
+         Personal tone — sounds like a real person, not a gig listing
     ============================================================ -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://jharitesh.me/" />
-    <meta property="og:site_name" content="Ritesh Jha — Web Developer" />
-    <meta property="og:title" content="Freelance Web Developer Mumbai | MERN Stack — Ritesh Jha" />
+    <meta property="og:site_name" content="Ritesh Jha" />
+    <meta property="og:title" content="Ritesh Jha — Freelance Web Developer, Mumbai" />
     <meta
       property="og:description"
-      content="I'm a freelance web developer in Mumbai. React, Node.js, MongoDB — full stack. Available for startup projects, custom web apps, and short-term contracts across India."
+      content="CS student and freelance developer from Mumbai. I work with React, Node.js, and MongoDB. Available for startup projects and short-term contracts across India."
     />
     <meta property="og:image" content="https://jharitesh.me/og-image.jpg" />
     <meta property="og:image:width" content="1200" />
@@ -53,25 +53,24 @@
 
     <!-- ============================================================
          TWITTER / X CARD
-         Different description again — Twitter audience is more casual
+         Casual — sounds like something you'd actually post
     ============================================================ -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content="https://jharitesh.me/" />
-    <meta name="twitter:title" content="Ritesh Jha — Freelance MERN Stack Developer, Mumbai" />
+    <meta name="twitter:title" content="Ritesh Jha — MERN Stack Developer, Mumbai" />
     <meta
       name="twitter:description"
-      content="Web developer from Mumbai. I build fast, custom web apps with React and Node.js. Startup-friendly rates. Open to freelance work across India."
+      content="CS student from Mumbai. I build web apps with React and Node.js on the side. Open to freelance work across India."
     />
     <meta name="twitter:image" content="https://jharitesh.me/og-image.jpg" />
     <meta name="twitter:creator" content="@jharitesh" />
 
     <!-- ============================================================
          JSON-LD STRUCTURED DATA
-         Person schema + WebSite schema
-         This is what puts your name in Google's knowledge panel
-         and enables sitelinks search box
+         BUG FIX: was "ld+ json" (with space) — now correctly "ld+json"
+         Google was silently ignoring the entire schema block before.
     ============================================================ -->
-    <script type="application/ld+ json">
+    <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@graph": [
@@ -82,8 +81,18 @@
           "url": "https://jharitesh.me/",
           "image": "https://jharitesh.me/og-image.jpg",
           "jobTitle": "Freelance Web Developer",
-          "description": "Freelance MERN stack web developer based in Mumbai, India. Builds React and Node.js web apps for startups and small businesses.",
-          "knowsAbout": ["React.js", "Node.js", "MongoDB", "Express.js", "MERN Stack", "JavaScript", "Web Development"],
+          "description": "Computer engineering student and freelance MERN stack developer from Mumbai, India. Builds React and Node.js web apps for startups and small businesses.",
+          "knowsAbout": [
+            "React.js",
+            "Node.js",
+            "MongoDB",
+            "Express.js",
+            "MERN Stack",
+            "JavaScript",
+            "Tailwind CSS",
+            "REST APIs",
+            "Web Development"
+          ],
           "address": {
             "@type": "PostalAddress",
             "addressLocality": "Mumbai",
@@ -97,7 +106,7 @@
           "offers": {
             "@type": "Offer",
             "name": "Freelance Web Development",
-            "description": "Custom web app development using React, Node.js, and MongoDB for startups and small businesses in India.",
+            "description": "Custom web app development using React, Node.js, and MongoDB. Available for startups and businesses across India.",
             "areaServed": {
               "@type": "Country",
               "name": "India"
@@ -113,7 +122,7 @@
           "@id": "https://jharitesh.me/#website",
           "url": "https://jharitesh.me/",
           "name": "Ritesh Jha — Freelance Web Developer Mumbai",
-          "description": "Portfolio of Ritesh Jha, a freelance MERN stack web developer based in Mumbai, India.",
+          "description": "Portfolio of Ritesh Jha, a freelance MERN stack web developer from Mumbai, India.",
           "author": {
             "@id": "https://jharitesh.me/#person"
           },
