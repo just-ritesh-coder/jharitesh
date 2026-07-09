@@ -8,16 +8,19 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@react-three/drei": "^9.0.0",
+    "@react-three/fiber": "^8.0.0",
     "framer-motion": "^10.12.16",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-force-graph-2d": "^1.29.1",
     "react-hook-form": "^7.45.1",
-    "three": "^0.162.0",
-    "@react-three/fiber": "^8.0.0",
-    "@react-three/drei": "^9.0.0"
+    "three": "^0.162.0"
   },
   "devDependencies": {
+    "autoprefixer": "^10.5.2",
+    "postcss": "^8.5.16",
+    "tailwindcss": "^3.4.19",
     "vite": "^5.0.0"
   }
 }
