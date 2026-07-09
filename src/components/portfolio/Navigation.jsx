@@ -1,7 +1,8 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Navigation() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-black/70 backdrop-blur-xl border-b border-white/10" data-testid="main-nav">
       <div className="flex items-center justify-between px-6 md:px-12 lg:px-20 h-16 md:h-20">
@@ -68,8 +69,38 @@ export default function Navigation() {
           <a className="btn-race hidden md:inline-flex bg-white text-black font-heading font-bold uppercase tracking-widest text-[11px] px-4 py-2 clip-slant hover:bg-racing-red hover:text-white transition-colors" href="#contact">
             Radio →
           </a>
+          <button 
+            className="lg:hidden text-white p-2"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            <svg fill="none" height="24" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" width="24">
+              {isMobileMenuOpen ? (
+                <path d="M6 18L18 6M6 6l12 12"></path>
+              ) : (
+                <path d="M4 6h16M4 12h16M4 18h16"></path>
+              )}
+            </svg>
+          </button>
         </div>
       </div>
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div 
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            className="lg:hidden bg-black/95 border-b border-white/10 overflow-hidden"
+          >
+            <nav className="flex flex-col items-start px-6 py-6 gap-6">
+              <a onClick={() => setIsMobileMenuOpen(false)} className="font-mono text-[11px] tracking-[0.25em] uppercase text-white hover:text-racing-red transition-colors w-full border-b border-white/10 pb-2" href="#home">S1 · Home</a>
+              <a onClick={() => setIsMobileMenuOpen(false)} className="font-mono text-[11px] tracking-[0.25em] uppercase text-white hover:text-racing-red transition-colors w-full border-b border-white/10 pb-2" href="#about">S2 · Driver</a>
+              <a onClick={() => setIsMobileMenuOpen(false)} className="font-mono text-[11px] tracking-[0.25em] uppercase text-white hover:text-racing-red transition-colors w-full border-b border-white/10 pb-2" href="#projects">S3 · Grand Prix</a>
+              <a onClick={() => setIsMobileMenuOpen(false)} className="font-mono text-[11px] tracking-[0.25em] uppercase text-white hover:text-racing-red transition-colors w-full border-b border-white/10 pb-2" href="#skills">S4 · Garage</a>
+              <a onClick={() => setIsMobileMenuOpen(false)} className="font-mono text-[11px] tracking-[0.25em] uppercase text-white hover:text-racing-red transition-colors w-full border-b border-white/10 pb-2" href="#contact">S5 · Paddock</a>
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
       <div className="h-[2px] bg-gradient-to-r from-racing-red via-transparent to-electric-cyan">
       </div>
     </header>

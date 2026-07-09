@@ -75,7 +75,7 @@ export default function Hero({ bgImage = 'https://upload.wikimedia.org/wikipedia
         >
           <img alt="Ritesh Kumar Jha, freelance web developer Mumbai — MERN stack developer portfolio hero" className="absolute inset-0 w-full h-full object-cover" src="/images/image.png" />
           <div className="absolute inset-0 bg-gradient-to-l from-black/20 via-black/40 to-black/70"></div>
-          <div className="absolute inset-0 pointer-events-none" data-testid="telemetry-hud">
+          <div className="absolute inset-0 pointer-events-none hidden md:block" data-testid="telemetry-hud">
             {/* Velocity */}
             <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.6 }} className="absolute top-4 left-4 md:top-6 md:left-6 pointer-events-auto">
               <div className="bg-black/60 backdrop-blur-md border border-white/10 clip-slant px-4 py-3 font-mono" data-testid="hud-speedometer">

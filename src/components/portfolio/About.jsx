@@ -38,12 +38,12 @@ export default function About() {
                   <p className="mt-4 font-mono text-sm text-white/50 leading-relaxed">
                     As a freelance web developer serving Mumbai, Thane, and clients India-wide, I focus on affordable, high-performance web development for startups and small businesses — from custom web apps to full production deployments.
                   </p>
-                  <div className="mt-6 p-4 border border-white/10 bg-black/40 font-mono text-xs text-white/70 flex flex-col gap-2">
-                    <div className="flex"><span className="w-32 text-white/40">EMAIL</span>jharitesh148@gmail.com</div>
-                    <div className="flex"><span className="w-32 text-white/40">PHONE</span>+91 9588499371</div>
-                    <div className="flex"><span className="w-32 text-white/40">LOCATION</span>Thane, Mumbai, Maharashtra, India</div>
-                    <div className="flex"><span className="w-32 text-white/40">DEGREE</span>B.E. Computer Engineering — Final Year (2026)</div>
-                    <div className="flex"><span className="w-32 text-white/40">AVAILABLE FOR</span>Freelance Projects · Internship · Full-Time</div>
+                  <div className="mt-6 p-4 border border-white/10 bg-black/40 font-mono text-[10px] sm:text-xs text-white/70 flex flex-col gap-3">
+                    <div className="flex flex-col sm:flex-row"><span className="w-32 text-white/40 shrink-0 mb-1 sm:mb-0">EMAIL</span><span className="break-all">jharitesh148@gmail.com</span></div>
+                    <div className="flex flex-col sm:flex-row"><span className="w-32 text-white/40 shrink-0 mb-1 sm:mb-0">PHONE</span><span>+91 9588499371</span></div>
+                    <div className="flex flex-col sm:flex-row"><span className="w-32 text-white/40 shrink-0 mb-1 sm:mb-0">LOCATION</span><span>Thane, Mumbai, Maharashtra, India</span></div>
+                    <div className="flex flex-col sm:flex-row"><span className="w-32 text-white/40 shrink-0 mb-1 sm:mb-0">DEGREE</span><span>B.E. Computer Engineering — Final Year (2026)</span></div>
+                    <div className="flex flex-col sm:flex-row"><span className="w-32 text-white/40 shrink-0 mb-1 sm:mb-0">AVAILABLE FOR</span><span>Freelance Projects · Internship · Full-Time</span></div>
                   </div>
                 </div>
 
