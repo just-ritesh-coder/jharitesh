@@ -28,16 +28,23 @@ export default function About() {
               <div className="font-mono text-xs text-white/40 tracking-widest uppercase mb-2">
                 #21 · Team Emergent
               </div>
-              <h2 className="font-display font-black text-5xl md:text-6xl text-white uppercase leading-none">
-                The Driver
+              <h2 className="font-display font-black text-3xl md:text-5xl text-white uppercase leading-tight">
+                THE DRIVER — #21 · Freelance MERN Stack Developer, Mumbai
               </h2>
               <div className="mt-6 h-[2px] w-24 bg-racing-red"></div>
               <div className="mt-6 flex flex-col md:flex-row gap-8 items-center md:items-start">
                 <div className="flex-1 font-heading text-xl text-white/80 leading-snug">
-                  Full stack engineer engineering full-throttle systems — from real-time telemetry pipelines to millisecond-precise interfaces.
+                  I'm a full-stack developer and final-year Computer Engineering student at Universal College of Engineering, based in Thane, Mumbai. I specialize in the MERN stack — building real-time systems, scalable web applications, and clean, modern interfaces for clients across Maharashtra and India.
                   <p className="mt-4 font-mono text-sm text-white/50 leading-relaxed">
-                    MERN specialist chasing the perfect racing line between developer experience, performance, and design integrity.
+                    As a freelance web developer serving Mumbai, Thane, and clients India-wide, I focus on affordable, high-performance web development for startups and small businesses — from custom web apps to full production deployments.
                   </p>
+                  <div className="mt-6 p-4 border border-white/10 bg-black/40 font-mono text-xs text-white/70 flex flex-col gap-2">
+                    <div className="flex"><span className="w-32 text-white/40">EMAIL</span>jharitesh148@gmail.com</div>
+                    <div className="flex"><span className="w-32 text-white/40">PHONE</span>+91 9588499371</div>
+                    <div className="flex"><span className="w-32 text-white/40">LOCATION</span>Thane, Mumbai, Maharashtra, India</div>
+                    <div className="flex"><span className="w-32 text-white/40">DEGREE</span>B.E. Computer Engineering — Final Year (2026)</div>
+                    <div className="flex"><span className="w-32 text-white/40">AVAILABLE FOR</span>Freelance Projects · Internship · Full-Time</div>
+                  </div>
                 </div>
 
                 <div className="w-[180px] flex-shrink-0 group">
@@ -45,7 +52,7 @@ export default function About() {
                     <img 
                       src="/images/driver-portrait.png" 
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      alt="Ritesh Jha"
+                      alt="Ritesh Jha — freelance full stack developer Mumbai, MERN stack specialist"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent pointer-events-none" />
                     <div className="absolute bottom-2 left-3 right-3 font-mono text-[10px] text-white/60 tracking-wider pointer-events-none">
@@ -66,29 +73,41 @@ export default function About() {
             >
               <div className="flex items-center justify-between mb-6">
                 <span className="font-mono text-[11px] tracking-[0.3em] text-white/60 uppercase">
-                  Career Telemetry
+                  Skill Telemetry
                 </span>
                 <span className="font-mono text-[10px] text-electric-cyan">
-                  ● LIVE
+                  ● ACTIVE
                 </span>
               </div>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} viewport={{ once: true }} className="border-l border-racing-red/60 pl-4">
-                  <div className="font-display text-2xl md:text-3xl text-white font-bold whitespace-nowrap">4,829</div>
-                  <div className="text-[10px] tracking-widest text-white/50 uppercase mt-1">Commits</div>
-                </motion.div>
-                <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }} viewport={{ once: true }} className="border-l border-racing-red/60 pl-4">
-                  <div className="font-display text-2xl md:text-3xl text-white font-bold whitespace-nowrap">312</div>
-                  <div className="text-[10px] tracking-widest text-white/50 uppercase mt-1">Deployments</div>
-                </motion.div>
-                <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.5 }} viewport={{ once: true }} className="border-l border-racing-red/60 pl-4">
-                  <div className="font-display text-2xl md:text-3xl text-white font-bold whitespace-nowrap">99.99%</div>
-                  <div className="text-[10px] tracking-widest text-white/50 uppercase mt-1">Uptime</div>
-                </motion.div>
-                <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.6 }} viewport={{ once: true }} className="border-l border-racing-red/60 pl-4">
-                  <div className="font-display text-2xl md:text-3xl text-white font-bold whitespace-nowrap">0.02%</div>
-                  <div className="text-[10px] tracking-widest text-white/50 uppercase mt-1">Bug Rate</div>
-                </motion.div>
+              <div className="flex flex-col gap-5">
+                <div>
+                  <div className="flex justify-between font-mono text-[10px] tracking-widest text-white/50 uppercase mb-2">
+                    <span title="Hire a MongoDB developer for scalable data-driven apps">MONGODB</span>
+                    <span className="text-white">85%</span>
+                  </div>
+                  <div className="h-1 w-full bg-white/10 relative"><div className="absolute inset-y-0 left-0 bg-electric-cyan" style={{ width: '85%' }}></div></div>
+                </div>
+                <div>
+                  <div className="flex justify-between font-mono text-[10px] tracking-widest text-white/50 uppercase mb-2">
+                    <span title="Node.js developer for hire — REST API specialist">EXPRESS.JS</span>
+                    <span className="text-white">92%</span>
+                  </div>
+                  <div className="h-1 w-full bg-white/10 relative"><div className="absolute inset-y-0 left-0 bg-racing-red" style={{ width: '92%' }}></div></div>
+                </div>
+                <div>
+                  <div className="flex justify-between font-mono text-[10px] tracking-widest text-white/50 uppercase mb-2">
+                    <span title="Freelance React developer for fast, modern UIs">REACT</span>
+                    <span className="text-white">98%</span>
+                  </div>
+                  <div className="h-1 w-full bg-white/10 relative"><div className="absolute inset-y-0 left-0 bg-emerald-400" style={{ width: '98%' }}></div></div>
+                </div>
+                <div>
+                  <div className="flex justify-between font-mono text-[10px] tracking-widest text-white/50 uppercase mb-2">
+                    <span title="REST API development with Node.js">NODE.JS</span>
+                    <span className="text-white">90%</span>
+                  </div>
+                  <div className="h-1 w-full bg-white/10 relative"><div className="absolute inset-y-0 left-0 bg-blue-500" style={{ width: '90%' }}></div></div>
+                </div>
               </div>
             </motion.div>
             <motion.div 

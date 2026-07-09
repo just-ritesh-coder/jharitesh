@@ -30,40 +30,40 @@ export default function Hero({ bgImage = 'https://upload.wikimedia.org/wikipedia
             Ritesh<br/>
             <span className="text-transparent" style={{ WebkitTextStroke: '2px rgb(225,6,0)' }}>Jha</span>
           </h1>
-          <div className="mt-6 font-heading text-2xl sm:text-3xl lg:text-4xl font-light text-white/90 max-w-xl leading-tight" data-testid="hero-subheading">
-            Building <span className="text-electric-cyan">ultra-fast</span> real-time digital experiences.
-            <p className="mt-6 font-mono text-sm text-white/60 max-w-lg leading-relaxed" data-testid="hero-description">
-              MERN stack developer focused on scalable systems, real-time applications, and modern interactive experiences engineered for velocity, precision and reliability.
-            </p>
-            <div className="mt-8 grid grid-cols-3 gap-4 max-w-md">
-              <div className="border-l border-white/10 pl-3">
-                <div className="text-[10px] font-mono tracking-widest text-white/40 uppercase">Uptime</div>
-                <div className="font-display text-lg text-white font-bold">99.99%</div>
-              </div>
-              <div className="border-l border-white/10 pl-3">
-                <div className="text-[10px] font-mono tracking-widest text-white/40 uppercase">Deploys</div>
-                <div className="font-display text-lg text-white font-bold">1.2k</div>
-              </div>
-              <div className="border-l border-white/10 pl-3">
-                <div className="text-[10px] font-mono tracking-widest text-white/40 uppercase">Latency</div>
-                <div className="font-display text-lg text-white font-bold">14ms</div>
-              </div>
+          <h2 className="mt-6 font-heading text-2xl sm:text-3xl lg:text-4xl font-light text-white/90 max-w-xl leading-tight" data-testid="hero-subheading">
+            Freelance web developer in Mumbai, building <span className="text-electric-cyan">ultra-fast</span> MERN stack web apps for startups across India.
+          </h2>
+          <p className="mt-6 font-mono text-sm text-white/60 max-w-lg leading-relaxed" data-testid="hero-description">
+            I'm a freelance web developer based in Mumbai and Thane, working as a full-stack MERN developer — React on the front, Node.js and Express on the back, MongoDB underneath. I build custom websites and web applications for startups and small businesses across Maharashtra and India. Fast, clean, no bloat.
+          </p>
+          <div className="mt-8 grid grid-cols-3 gap-4 max-w-md">
+            <div className="border-l border-white/10 pl-3">
+              <div className="text-[10px] font-mono tracking-widest text-white/40 uppercase">Uptime</div>
+              <div className="font-display text-lg text-white font-bold">99.99%</div>
             </div>
-            <div className="mt-10 flex flex-col sm:flex-row gap-4">
-              <a className="btn-race group inline-flex items-center justify-center gap-3 bg-racing-red text-white font-heading font-bold uppercase tracking-[0.25em] text-sm px-8 py-4 clip-slant border border-racing-red hover:shadow-[0_0_30px_var(--red-glow)] transition-shadow" data-testid="view-grand-prix-btn" href="#projects">
-                <span>View Grand Prix</span>
-                <svg fill="none" height="18" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" width="18">
-                  <path d="M5 12h14M13 6l6 6-6 6"></path>
-                </svg>
-              </a>
-              <a className="btn-race group inline-flex items-center justify-center gap-3 border border-white/30 text-white font-heading font-bold uppercase tracking-[0.25em] text-sm px-8 py-4 clip-slant hover:border-electric-cyan hover:text-electric-cyan hover:shadow-[0_0_25px_var(--cyan-glow)] transition-all" data-testid="enter-garage-btn" href="#skills">
-                <svg fill="none" height="18" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" width="18">
-                  <circle cx="12" cy="12" r="9"></circle>
-                  <path d="M12 3v18M3 12h18"></path>
-                </svg>
-                <span>Enter Garage</span>
-              </a>
+            <div className="border-l border-white/10 pl-3">
+              <div className="text-[10px] font-mono tracking-widest text-white/40 uppercase">Deploys</div>
+              <div className="font-display text-lg text-white font-bold">1.2k</div>
             </div>
+            <div className="border-l border-white/10 pl-3">
+              <div className="text-[10px] font-mono tracking-widest text-white/40 uppercase">Latency</div>
+              <div className="font-display text-lg text-white font-bold">14ms</div>
+            </div>
+          </div>
+          <div className="mt-10 flex flex-col sm:flex-row gap-4">
+            <a className="btn-race group inline-flex items-center justify-center gap-3 bg-racing-red text-white font-heading font-bold uppercase tracking-[0.25em] text-sm px-8 py-4 clip-slant border border-racing-red hover:shadow-[0_0_30px_var(--red-glow)] transition-shadow" data-testid="view-grand-prix-btn" href="#projects">
+              <span>View Grand Prix</span>
+              <svg fill="none" height="18" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" width="18">
+                <path d="M5 12h14M13 6l6 6-6 6"></path>
+              </svg>
+            </a>
+            <a className="btn-race group inline-flex items-center justify-center gap-3 border border-white/30 text-white font-heading font-bold uppercase tracking-[0.25em] text-sm px-8 py-4 clip-slant hover:border-electric-cyan hover:text-electric-cyan hover:shadow-[0_0_25px_var(--cyan-glow)] transition-all" data-testid="enter-garage-btn" href="#skills">
+              <svg fill="none" height="18" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" width="18">
+                <circle cx="12" cy="12" r="9"></circle>
+                <path d="M12 3v18M3 12h18"></path>
+              </svg>
+              <span>Enter Garage</span>
+            </a>
           </div>
         </motion.div>
         
@@ -73,7 +73,7 @@ export default function Hero({ bgImage = 'https://upload.wikimedia.org/wikipedia
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
           className="col-span-1 lg:col-span-6 relative w-full h-full overflow-hidden min-h-[420px] lg:min-h-[560px]"
         >
-          <img alt="F1 Car on Track" aria-hidden="true" className="absolute inset-0 w-full h-full object-cover" src="/images/image.png" />
+          <img alt="Ritesh Kumar Jha, freelance web developer Mumbai — MERN stack developer portfolio hero" className="absolute inset-0 w-full h-full object-cover" src="/images/image.png" />
           <div className="absolute inset-0 bg-gradient-to-l from-black/20 via-black/40 to-black/70"></div>
           <div className="absolute inset-0 pointer-events-none" data-testid="telemetry-hud">
             {/* Velocity */}

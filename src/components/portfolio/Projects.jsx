@@ -10,12 +10,13 @@ export default function Projects() {
   const projectsData = [
     {
       id: 'p1',
-      title: 'Velocity — Real-Time Trading Console',
+      title: 'CodeLive',
       position: 'P1',
       color: 'rgb(225,6,0)',
-      type: 'Fintech · WebSocket',
+      type: 'Socket.IO · React · WebRTC',
       lap: '0.14s',
-      metric: 'LCP · Bundle 82kb',
+      metric: '99% Uptime (Architecture)',
+      description: 'A real-time collaborative coding platform built by a Node.js and React developer — low-latency sync, integrated chat, and in-session video + screen share.',
       tech: [
         { name: 'React', score: 92, pct: '92%' },
         { name: 'Node', score: 88, pct: '88%' },
@@ -25,32 +26,34 @@ export default function Projects() {
     },
     {
       id: 'p2',
-      title: 'PitLane — Collaborative IDE',
+      title: 'EzyRide',
       position: 'P2',
       color: 'rgb(0,163,224)',
-      type: 'DevTools · CRDT',
+      type: 'Node · REST API · MongoDB',
       lap: '0.22s',
-      metric: 'TTI · 60fps sync',
+      metric: '<200ms Latency (Target)',
+      description: 'A ride-sharing platform built with the MERN stack for the Indian market — authentication, live booking, real-time status updates, and SOS alerts. A custom web app built with React, Node.js, and MongoDB.',
       tech: [
         { name: 'React', score: 90, pct: '90%' },
-        { name: 'Yjs', score: 82, pct: '82%' },
-        { name: 'Node', score: 78, pct: '78%' },
-        { name: 'Mongo', score: 65, pct: '65%' },
+        { name: 'Node', score: 82, pct: '82%' },
+        { name: 'Mongo', score: 78, pct: '78%' },
+        { name: 'Express', score: 85, pct: '85%' },
       ]
     },
     {
       id: 'p3',
-      title: 'Apex — Live Analytics Grid',
+      title: 'JHA Projects',
       position: 'P3',
       color: 'rgb(243,169,0)',
-      type: 'Data Viz · Streaming',
+      type: 'MERN · SEO · Performance',
       lap: '0.31s',
-      metric: '10k rows · 60fps',
+      metric: 'Client-First Build System',
+      description: 'A web development agency based in Mumbai, delivering affordable, high-performance business websites, branding, and custom MERN builds for startups across India.',
       tech: [
         { name: 'React', score: 85, pct: '85%' },
-        { name: 'D3', score: 74, pct: '74%' },
-        { name: 'Kafka', score: 68, pct: '68%' },
         { name: 'Node', score: 80, pct: '80%' },
+        { name: 'Mongo', score: 70, pct: '70%' },
+        { name: 'Tailwind', score: 95, pct: '95%' },
       ]
     },
     {
@@ -113,11 +116,11 @@ export default function Projects() {
                 Sector 03 · Grand Prix Circuit
               </span>
             </div>
-            <h2 className="font-display font-black text-5xl md:text-6xl text-white uppercase leading-none">
-              Race Results
+            <h2 className="font-display font-black text-4xl md:text-5xl lg:text-6xl text-white uppercase leading-none">
+              RACE RESULTS — Web Development Projects by a Freelance MERN Stack Developer
             </h2>
             <p className="mt-4 font-mono text-sm text-white/50 max-w-xl">
-              Selected projects — ranked by production impact, engineered for peak performance.
+              Selected projects built as a freelance web developer in Mumbai — real-time systems, ride-sharing platforms, and business websites, engineered with the MERN stack for startups and small businesses across India.
             </p>
           </div>
           <div className="flex items-center gap-6 font-mono text-[11px] tracking-widest uppercase text-white/40">
@@ -155,6 +158,11 @@ export default function Projects() {
               <div className="font-mono text-[11px] text-electric-cyan">
                 {project.metric}
               </div>
+              {project.description && (
+                <p className="font-sans text-sm text-white/70 mt-2 mb-2 line-clamp-3">
+                  {project.description}
+                </p>
+              )}
               <div className="flex flex-col gap-2 mt-auto">
                 {project.tech.map((t, i) => (
                   <div key={i} className="flex items-center gap-3">

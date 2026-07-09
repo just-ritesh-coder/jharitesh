@@ -20,11 +20,11 @@ export default function Skills() {
                 Sector 04 · Team Garage
               </span>
             </div>
-            <h2 className="font-display font-black text-5xl md:text-6xl text-white uppercase leading-none">
-              Tyre Compounds
+            <h2 className="font-display font-black text-3xl md:text-5xl lg:text-6xl text-white uppercase leading-tight">
+              TYRE COMPOUNDS — Tech Stack of a Freelance MERN Stack Developer
             </h2>
             <p className="mt-4 font-mono text-sm text-white/50 max-w-xl">
-              Skill inventory grouped by compound — from race-day peak specialities to long-run fundamentals.
+              The technology stack I use as a full-stack developer in Mumbai — from React and Node.js to MongoDB — engineered for performance, reliability, and scalable web applications across India.
             </p>
           </div>
           <div className="font-mono text-[10px] text-white/40 tracking-widest uppercase border border-white/10 px-3 py-1.5">
@@ -32,111 +32,37 @@ export default function Skills() {
           </div>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {/* Soft */}
-          <motion.div 
-            variants={cardVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="relative border border-white/10 bg-surface p-6 md:p-8 carbon-fiber hover:border-white/40 transition-colors overflow-hidden" data-testid="skill-tyre-card"
-          >
-            <div className="absolute top-0 left-0 w-full h-[3px]" style={{ background: 'rgb(225,6,0)' }}></div>
-            <div className="flex items-center justify-between mb-6">
-              <div>
-                <div className="font-display font-black text-3xl md:text-4xl uppercase" style={{ color: 'rgb(225,6,0)' }}>Soft</div>
-                <div className="font-mono text-[10px] tracking-widest uppercase text-white/50 mt-1">Peak Performance</div>
+        <div className="max-w-3xl mt-12">
+          <div className="flex flex-col gap-6">
+            <div>
+              <div className="flex justify-between font-mono text-[11px] tracking-widest text-white/50 uppercase mb-2">
+                <span title="Hire a MongoDB developer for scalable data-driven apps">MONGODB</span>
+                <span className="text-white">85%</span>
               </div>
-              <div className="relative w-20 h-20 shrink-0">
-                <div className="absolute inset-0 rounded-full border-[6px]" style={{ borderColor: 'rgb(225,6,0)', opacity: 0.9 }}></div>
-                <div className="absolute inset-2 rounded-full border border-dashed border-white/30 wheel-spin" style={{ animationDuration: '2.4s' }}></div>
-                <div className="absolute inset-6 rounded-full bg-white/5 border border-white/20"></div>
-                <div className="absolute inset-0 rounded-full" style={{ boxShadow: 'rgba(225,6,0,0.267) 0px 0px 30px' }}></div>
+              <div className="h-1 w-full bg-white/10 relative"><div className="absolute inset-y-0 left-0 bg-electric-cyan" style={{ width: '85%' }}></div></div>
+            </div>
+            <div>
+              <div className="flex justify-between font-mono text-[11px] tracking-widest text-white/50 uppercase mb-2">
+                <span title="Node.js developer for hire — REST API specialist">EXPRESS.JS</span>
+                <span className="text-white">92%</span>
               </div>
+              <div className="h-1 w-full bg-white/10 relative"><div className="absolute inset-y-0 left-0 bg-racing-red" style={{ width: '92%' }}></div></div>
             </div>
-            <div className="flex flex-wrap gap-2">
-              {['React', 'Node.js', 'MongoDB', 'Express', 'TypeScript', 'Next.js'].map(skill => (
-                <span key={skill} className="font-mono text-[11px] tracking-wide text-white/80 border border-white/10 px-3 py-1.5 hover:border-white/40 hover:text-white transition-colors" style={{ background: 'rgba(0,0,0,0.4)' }}>
-                  {skill}
-                </span>
-              ))}
-            </div>
-            <div className="mt-6 flex items-center justify-between font-mono text-[10px] tracking-widest uppercase text-white/40 border-t border-white/10 pt-4">
-              <span>Compound · SOFT</span>
-              <span className="hud-pulse" style={{ color: 'rgb(225,6,0)' }}>●</span>
-            </div>
-          </motion.div>
-          
-          {/* Medium */}
-          <motion.div 
-            variants={cardVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="relative border border-white/10 bg-surface p-6 md:p-8 carbon-fiber hover:border-white/40 transition-colors overflow-hidden" data-testid="skill-tyre-card"
-          >
-            <div className="absolute top-0 left-0 w-full h-[3px]" style={{ background: 'rgb(243,169,0)' }}></div>
-            <div className="flex items-center justify-between mb-6">
-              <div>
-                <div className="font-display font-black text-3xl md:text-4xl uppercase" style={{ color: 'rgb(243,169,0)' }}>Medium</div>
-                <div className="font-mono text-[10px] tracking-widest uppercase text-white/50 mt-1">Balanced Deployment</div>
+            <div>
+              <div className="flex justify-between font-mono text-[11px] tracking-widest text-white/50 uppercase mb-2">
+                <span title="Freelance React developer for fast, modern UIs">REACT</span>
+                <span className="text-white">98%</span>
               </div>
-              <div className="relative w-20 h-20 shrink-0">
-                <div className="absolute inset-0 rounded-full border-[6px]" style={{ borderColor: 'rgb(243,169,0)', opacity: 0.9 }}></div>
-                <div className="absolute inset-2 rounded-full border border-dashed border-white/30 wheel-spin" style={{ animationDuration: '2.4s' }}></div>
-                <div className="absolute inset-6 rounded-full bg-white/5 border border-white/20"></div>
-                <div className="absolute inset-0 rounded-full" style={{ boxShadow: 'rgba(243,169,0,0.267) 0px 0px 30px' }}></div>
+              <div className="h-1 w-full bg-white/10 relative"><div className="absolute inset-y-0 left-0 bg-emerald-400" style={{ width: '98%' }}></div></div>
+            </div>
+            <div>
+              <div className="flex justify-between font-mono text-[11px] tracking-widest text-white/50 uppercase mb-2">
+                <span title="REST API development with Node.js">NODE.JS</span>
+                <span className="text-white">90%</span>
               </div>
+              <div className="h-1 w-full bg-white/10 relative"><div className="absolute inset-y-0 left-0 bg-blue-500" style={{ width: '90%' }}></div></div>
             </div>
-            <div className="flex flex-wrap gap-2">
-              {['Redis', 'GraphQL', 'Docker', 'AWS', 'PostgreSQL', 'Framer Motion'].map(skill => (
-                <span key={skill} className="font-mono text-[11px] tracking-wide text-white/80 border border-white/10 px-3 py-1.5 hover:border-white/40 hover:text-white transition-colors" style={{ background: 'rgba(0,0,0,0.4)' }}>
-                  {skill}
-                </span>
-              ))}
-            </div>
-            <div className="mt-6 flex items-center justify-between font-mono text-[10px] tracking-widest uppercase text-white/40 border-t border-white/10 pt-4">
-              <span>Compound · MEDIUM</span>
-              <span className="hud-pulse" style={{ color: 'rgb(243,169,0)' }}>●</span>
-            </div>
-          </motion.div>
-          
-          {/* Hard */}
-          <motion.div 
-            variants={cardVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="relative border border-white/10 bg-surface p-6 md:p-8 carbon-fiber hover:border-white/40 transition-colors overflow-hidden" data-testid="skill-tyre-card"
-          >
-            <div className="absolute top-0 left-0 w-full h-[3px]" style={{ background: 'rgb(255,255,255)' }}></div>
-            <div className="flex items-center justify-between mb-6">
-              <div>
-                <div className="font-display font-black text-3xl md:text-4xl uppercase" style={{ color: 'rgb(255,255,255)' }}>Hard</div>
-                <div className="font-mono text-[10px] tracking-widest uppercase text-white/50 mt-1">System Fundamentals</div>
-              </div>
-              <div className="relative w-20 h-20 shrink-0">
-                <div className="absolute inset-0 rounded-full border-[6px]" style={{ borderColor: 'rgb(255,255,255)', opacity: 0.9 }}></div>
-                <div className="absolute inset-2 rounded-full border border-dashed border-white/30 wheel-spin" style={{ animationDuration: '2.4s' }}></div>
-                <div className="absolute inset-6 rounded-full bg-white/5 border border-white/20"></div>
-                <div className="absolute inset-0 rounded-full" style={{ boxShadow: 'rgba(255,255,255,0.267) 0px 0px 30px' }}></div>
-              </div>
-            </div>
-            <div className="flex flex-wrap gap-2">
-              {['Data Structures', 'System Design', 'Networking', 'Linux', 'CI/CD', 'Testing'].map(skill => (
-                <span key={skill} className="font-mono text-[11px] tracking-wide text-white/80 border border-white/10 px-3 py-1.5 hover:border-white/40 hover:text-white transition-colors" style={{ background: 'rgba(0,0,0,0.4)' }}>
-                  {skill}
-                </span>
-              ))}
-            </div>
-            <div className="mt-6 flex items-center justify-between font-mono text-[10px] tracking-widest uppercase text-white/40 border-t border-white/10 pt-4">
-              <span>Compound · HARD</span>
-              <span className="hud-pulse" style={{ color: 'rgb(255,255,255)' }}>●</span>
-            </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

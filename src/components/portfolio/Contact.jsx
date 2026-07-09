@@ -26,9 +26,9 @@ export default function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="font-display font-black text-5xl md:text-7xl text-white uppercase leading-none"
+          className="font-display font-black text-3xl md:text-5xl lg:text-6xl text-white uppercase leading-tight"
         >
-          Open Channel
+          OPEN CHANNEL — Hire a Freelance Web Developer in Mumbai
         </motion.h2>
         <motion.p 
           initial={{ opacity: 0, y: 20 }}
@@ -38,6 +38,15 @@ export default function Contact() {
           className="mt-6 font-heading text-xl md:text-2xl text-white/70 max-w-2xl mx-auto leading-snug"
         >
           Ready to race? Radio in — I respond within one flying lap.
+        </motion.p>
+        <motion.p 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3 }}
+          className="mt-4 font-mono text-sm text-white/50 max-w-2xl mx-auto leading-relaxed"
+        >
+          Looking for a freelance web developer in Mumbai or a MERN stack developer for your next project? Whether you're a startup or small business anywhere in Maharashtra or India, let's build something fast.
         </motion.p>
         <motion.div 
           initial={{ opacity: 0, scale: 0.8 }}
@@ -59,37 +68,47 @@ export default function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.4 }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-2xl mx-auto"
+          className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto text-left"
         >
-          <a className="btn-race group flex items-center justify-between gap-3 border border-racing-red bg-racing-red/10 hover:bg-racing-red text-white px-6 py-5 clip-slant transition-colors" data-testid="email-link" href="mailto:jharitesh148@gmail.com">
-            <div className="text-left relative z-10">
-              <div className="font-mono text-[10px] tracking-widest text-white/60 uppercase">Radio Channel</div>
-              <div className="font-heading text-base font-bold text-white break-all">jharitesh148@gmail.com</div>
+          {/* Form */}
+          <form className="flex flex-col gap-5">
+            <div>
+              <label className="block font-mono text-[10px] tracking-widest text-white/60 uppercase mb-2">Pilot Name</label>
+              <input type="text" placeholder="e.g. John Doe" className="w-full bg-black/40 border border-white/10 p-4 font-sans text-white placeholder-white/30 focus:border-racing-red focus:outline-none transition-colors" />
             </div>
-            <svg className="relative z-10" fill="none" height="20" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" width="20">
-              <path d="M4 4h16v16H4zM4 4l8 8 8-8"></path>
-            </svg>
-          </a>
-          <a className="btn-race group flex items-center justify-between gap-3 border border-electric-cyan bg-electric-cyan/10 hover:bg-electric-cyan hover:text-black text-white px-6 py-5 clip-slant-r transition-colors" data-testid="linkedin-link" href="https://www.linkedin.com/in/just-ritesh21" rel="noopener noreferrer" target="_blank">
-            <div className="text-left relative z-10">
-              <div className="font-mono text-[10px] tracking-widest text-current/70 uppercase opacity-80">Team Principal</div>
-              <div className="font-heading text-base font-bold">just-ritesh21</div>
+            <div>
+              <label className="block font-mono text-[10px] tracking-widest text-white/60 uppercase mb-2">Frequency (Email)</label>
+              <input type="email" placeholder="john@nebula.com" className="w-full bg-black/40 border border-white/10 p-4 font-sans text-white placeholder-white/30 focus:border-racing-red focus:outline-none transition-colors" />
             </div>
-            <svg className="relative z-10" fill="none" height="20" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" width="20">
-              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2zM4 6a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"></path>
-            </svg>
-          </a>
+            <div>
+              <label className="block font-mono text-[10px] tracking-widest text-white/60 uppercase mb-2">Mission Parameters</label>
+              <textarea placeholder="Describe the project scope, timeline, and goals..." rows="4" className="w-full bg-black/40 border border-white/10 p-4 font-sans text-white placeholder-white/30 focus:border-racing-red focus:outline-none transition-colors resize-none"></textarea>
+            </div>
+            <button type="button" className="btn-race bg-racing-red text-white font-heading font-bold uppercase tracking-[0.25em] text-sm px-8 py-4 clip-slant border border-racing-red hover:shadow-[0_0_30px_var(--red-glow)] transition-shadow">
+              ENGAGE IGNITION ⚡
+            </button>
+          </form>
+
+          {/* Contact Info Rows */}
+          <div className="flex flex-col gap-6 justify-center bg-surface border border-white/10 p-8 carbon-fiber">
+            <div className="border-l border-racing-red pl-4">
+              <div className="font-mono text-[10px] tracking-widest text-white/50 uppercase mb-1">Radio Channel</div>
+              <a href="mailto:jharitesh148@gmail.com" className="font-heading text-lg text-white hover:text-racing-red transition-colors break-all">jharitesh148@gmail.com</a>
+            </div>
+            <div className="border-l border-electric-cyan pl-4">
+              <div className="font-mono text-[10px] tracking-widest text-white/50 uppercase mb-1">Phone</div>
+              <div className="font-heading text-lg text-white">+91 9588499371</div>
+            </div>
+            <div className="border-l border-white/30 pl-4">
+              <div className="font-mono text-[10px] tracking-widest text-white/50 uppercase mb-1">Location</div>
+              <div className="font-heading text-lg text-white">Thane, Mumbai, Maharashtra, India</div>
+            </div>
+            <div className="border-l border-white/30 pl-4">
+              <div className="font-mono text-[10px] tracking-widest text-white/50 uppercase mb-1">Team Principal</div>
+              <a href="https://linkedin.com/in/just-ritesh21" target="_blank" rel="noopener noreferrer" className="font-heading text-lg text-white hover:text-electric-cyan transition-colors break-all">linkedin.com/in/just-ritesh21</a>
+            </div>
+          </div>
         </motion.div>
-        <motion.button 
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.5 }}
-          className="mt-6 font-mono text-[11px] tracking-[0.3em] uppercase text-white/50 hover:text-white transition-colors"
-          onClick={() => navigator.clipboard.writeText('jharitesh148@gmail.com')}
-        >
-          ⧉ Copy Radio Channel
-        </motion.button>
         <div className="mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 font-mono text-[10px] tracking-widest uppercase text-white/40">
           <span>© 2026 Ritesh Jha · Team Emergent</span>
           <span>Chassis · RJ-26 · Season 03</span>
