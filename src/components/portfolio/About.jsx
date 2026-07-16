@@ -1,9 +1,81 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useRef } from 'react';
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
+
+const AnimatedBar = ({ name, pct, color, description }) => {
+  return (
+    <div className="about-skill-row opacity-0 -translate-x-5">
+      <div className="flex justify-between font-mono text-[10px] tracking-widest text-white/50 uppercase mb-2">
+        <span title={description}>{name}</span>
+        <span className="text-white about-skill-number" data-target={parseInt(pct, 10)}>0%</span>
+      </div>
+      <div className="h-1 w-full bg-white/10 relative">
+        <div 
+          className={`absolute inset-y-0 left-0 ${color} about-skill-bar`} 
+          style={{ width: '0%' }}
+          data-target={pct}
+        />
+      </div>
+    </div>
+  );
+};
 
 export default function About() {
+  const containerRef = useRef(null);
+
+  useGSAP(() => {
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: containerRef.current,
+        start: "top top",
+        end: "+=150%",
+        pin: true,
+        scrub: 1,
+      }
+    });
+
+    // Left content reveal
+    tl.fromTo('.about-left', { opacity: 0, x: -50 }, { opacity: 1, x: 0, duration: 0.4 });
+
+    // Right cards reveal
+    tl.fromTo('.about-card', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.4, stagger: 0.2 }, "-=0.2");
+
+    // Staggered skill rows reveal
+    tl.to('.about-skill-row', {
+      opacity: 1,
+      x: 0,
+      duration: 0.3,
+      stagger: 0.15
+    }, "-=0.2");
+
+    // Bar fills and numbers
+    const bars = gsap.utils.toArray('.about-skill-bar');
+    const nums = gsap.utils.toArray('.about-skill-number');
+    
+    bars.forEach((bar, i) => {
+      tl.to(bar, {
+        width: bar.dataset.target,
+        duration: 1,
+        ease: "none"
+      }, `-=0.8`);
+      
+      tl.to(nums[i], {
+        innerHTML: nums[i].dataset.target,
+        snap: { innerHTML: 1 },
+        duration: 1,
+        ease: "none",
+        modifiers: {
+          innerHTML: (value) => Math.round(value) + "%"
+        }
+      }, `<`);
+    });
+  }, { scope: containerRef });
+
   return (
-    <section className="relative py-24 md:py-32 px-6 md:px-12 lg:px-20 overflow-hidden" data-testid="about-section" id="about">
+    <section ref={containerRef} className="relative py-24 md:py-32 px-6 md:px-12 lg:px-20 overflow-hidden" data-testid="about-section" id="about">
       <div className="absolute inset-0 grid-lines opacity-[0.06]"></div>
       <div className="absolute -right-40 top-20 h-96 w-96 rounded-full bg-electric-cyan/10 blur-[140px]"></div>
       <div className="relative max-w-7xl mx-auto">
@@ -14,13 +86,7 @@ export default function About() {
           </span>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
-          <motion.div 
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6 }}
-            className="lg:col-span-5 relative"
-          >
+          <div className="about-left lg:col-span-5 relative opacity-0 -translate-x-12">
             <div className="font-display font-black text-[16rem] leading-none text-white/[0.04] absolute -top-10 -left-4 select-none pointer-events-none">
               21
             </div>
@@ -62,60 +128,28 @@ export default function About() {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </div>
           <div className="lg:col-span-7 flex flex-col gap-6">
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="border border-white/10 bg-surface p-6 md:p-8 carbon-fiber" data-testid="driver-stats"
+            <div 
+              className="about-card border border-white/10 bg-surface p-6 md:p-8 carbon-fiber opacity-0 translate-y-8" data-testid="driver-stats"
             >
               <div className="flex items-center justify-between mb-6">
                 <span className="font-mono text-[11px] tracking-[0.3em] text-white/60 uppercase">
                   Skill Telemetry
                 </span>
                 <span className="font-mono text-[10px] text-electric-cyan">
-                  ● ACTIVE
+                  â— ACTIVE
                 </span>
               </div>
               <div className="flex flex-col gap-5">
-                <div>
-                  <div className="flex justify-between font-mono text-[10px] tracking-widest text-white/50 uppercase mb-2">
-                    <span title="Hire a MongoDB developer for scalable data-driven apps">MONGODB</span>
-                    <span className="text-white">85%</span>
-                  </div>
-                  <div className="h-1 w-full bg-white/10 relative"><div className="absolute inset-y-0 left-0 bg-electric-cyan" style={{ width: '85%' }}></div></div>
-                </div>
-                <div>
-                  <div className="flex justify-between font-mono text-[10px] tracking-widest text-white/50 uppercase mb-2">
-                    <span title="Node.js developer for hire — REST API specialist">EXPRESS.JS</span>
-                    <span className="text-white">92%</span>
-                  </div>
-                  <div className="h-1 w-full bg-white/10 relative"><div className="absolute inset-y-0 left-0 bg-racing-red" style={{ width: '92%' }}></div></div>
-                </div>
-                <div>
-                  <div className="flex justify-between font-mono text-[10px] tracking-widest text-white/50 uppercase mb-2">
-                    <span title="Freelance React developer for fast, modern UIs">REACT</span>
-                    <span className="text-white">98%</span>
-                  </div>
-                  <div className="h-1 w-full bg-white/10 relative"><div className="absolute inset-y-0 left-0 bg-emerald-400" style={{ width: '98%' }}></div></div>
-                </div>
-                <div>
-                  <div className="flex justify-between font-mono text-[10px] tracking-widest text-white/50 uppercase mb-2">
-                    <span title="REST API development with Node.js">NODE.JS</span>
-                    <span className="text-white">90%</span>
-                  </div>
-                  <div className="h-1 w-full bg-white/10 relative"><div className="absolute inset-y-0 left-0 bg-blue-500" style={{ width: '90%' }}></div></div>
-                </div>
+                <AnimatedBar name="MONGODB" pct="85%" color="bg-electric-cyan" index={0} description="Hire a MongoDB developer for scalable data-driven apps" />
+                <AnimatedBar name="EXPRESS.JS" pct="92%" color="bg-racing-red" index={1} description="Node.js developer for hire — REST API specialist" />
+                <AnimatedBar name="REACT" pct="98%" color="bg-emerald-400" description="Freelance React developer for fast, modern UIs" />
+                <AnimatedBar name="NODE.JS" pct="90%" color="bg-blue-500" description="REST API development with Node.js" />
               </div>
-            </motion.div>
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="border border-white/10 bg-black/40 backdrop-blur-md p-6 md:p-8"
+            </div>
+            <div 
+              className="about-card border border-white/10 bg-black/40 backdrop-blur-md p-6 md:p-8 opacity-0 translate-y-8"
             >
               <div className="font-mono text-[11px] tracking-[0.3em] text-white/60 uppercase mb-4">
                 Race History
@@ -134,7 +168,7 @@ export default function About() {
                   <div className="font-mono text-sm text-white/70">Chasing personal best on scalable MERN stacks</div>
                 </div>
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </div>

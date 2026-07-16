@@ -1,11 +1,32 @@
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useState, useEffect, useRef } from 'react';
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
 
 export default function IntroLoader({ onComplete }) {
   const [phase, setPhase] = useState(0);
+  const containerRef = useRef(null);
+  const scanLineRef = useRef(null);
+  const flashRef = useRef(null);
+  const carRef = useRef(null);
+  const textRef = useRef(null);
+  const subTextRef = useRef(null);
+  const gridRef = useRef(null);
+
+  useGSAP(() => {
+    const tl = gsap.timeline();
+    
+    // Grid fade in
+    gsap.to(gridRef.current, { opacity: 0.2, duration: 1 });
+    
+    // Sweeping Scan Line
+    gsap.to(scanLineRef.current, { top: '110%', duration: 1.5, ease: 'none', repeat: -1 });
+
+    // Phases for lights (handled by React state/timeouts below, but we can animate the exit with GSAP)
+    
+  }, { scope: containerRef });
 
   useEffect(() => {
-    // Sequence Timeline
+    // Sequence Timeline for lights
     const t1 = setTimeout(() => setPhase(1), 1000);
     const t2 = setTimeout(() => setPhase(2), 1500);
     const t3 = setTimeout(() => setPhase(3), 2000);
@@ -13,11 +34,25 @@ export default function IntroLoader({ onComplete }) {
     const t5 = setTimeout(() => setPhase(5), 3000);
     
     // Lights out moment
-    const t6 = setTimeout(() => setPhase(6), 4000); 
+    const t6 = setTimeout(() => {
+      setPhase(6);
+      
+      // GSAP Animations for phase 6 (Lights Out)
+      gsap.fromTo(flashRef.current, { opacity: 0.8 }, { opacity: 0, duration: 0.8, ease: "power2.out" });
+      gsap.fromTo(carRef.current, { x: '120%', opacity: 0 }, { x: '-120%', opacity: 1, duration: 0.7, ease: "none" });
+      gsap.fromTo(textRef.current, { scale: 0.8, opacity: 0, filter: 'blur(10px)' }, { scale: 1, opacity: 1, filter: 'blur(0px)', duration: 0.4, ease: "power2.out", delay: 0.35 });
+      gsap.fromTo(subTextRef.current, { opacity: 0 }, { opacity: 1, duration: 0.5, delay: 0.8 });
+      
+    }, 4000); 
     
-    // Trigger unmount and reveal main app
+    // Trigger unmount
     const t7 = setTimeout(() => {
-      onComplete();
+      gsap.to(containerRef.current, { 
+        clipPath: 'polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)', 
+        duration: 0.8, 
+        ease: "power4.inOut",
+        onComplete: onComplete 
+      });
     }, 6000);
 
     return () => {
@@ -27,28 +62,22 @@ export default function IntroLoader({ onComplete }) {
   }, [onComplete]);
 
   return (
-    <motion.div
+    <div
+      ref={containerRef}
       className="fixed inset-0 z-[100] bg-bg-base flex flex-col items-center justify-center overflow-hidden"
-      initial={{ clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)' }}
-      exit={{ 
-        clipPath: 'polygon(100% 0, 100% 0, 100% 100%, 100% 100%)',
-        transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] } 
-      }}
+      style={{ clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)' }}
     >
       {/* Faint Grid Lines Overlay */}
-      <motion.div 
-        className="absolute inset-0 grid-lines-anim opacity-20 pointer-events-none"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 0.2 }}
-        transition={{ duration: 1 }}
+      <div 
+        ref={gridRef}
+        className="absolute inset-0 grid-lines-anim opacity-0 pointer-events-none"
       />
 
       {/* Sweeping Scan Line */}
-      <motion.div 
+      <div 
+        ref={scanLineRef}
         className="absolute left-0 right-0 h-[2px] bg-racing-red shadow-[0_0_15px_rgb(225,6,0)] z-10 pointer-events-none"
-        initial={{ top: '-10%' }}
-        animate={{ top: '110%' }}
-        transition={{ duration: 1.5, ease: 'linear' }}
+        style={{ top: '-10%' }}
       />
 
       {/* 5 Circular F1 Start Lights */}
@@ -64,55 +93,35 @@ export default function IntroLoader({ onComplete }) {
       </div>
 
       {/* Lights Out Flash */}
-      <AnimatePresence>
-        {phase === 6 && (
-          <motion.div 
-            className="absolute inset-0 bg-white z-30 pointer-events-none"
-            initial={{ opacity: 0.8 }}
-            animate={{ opacity: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          />
-        )}
-      </AnimatePresence>
+      <div 
+        ref={flashRef}
+        className="absolute inset-0 bg-white z-30 pointer-events-none opacity-0"
+      />
 
       {/* Car Speed Streak */}
-      <AnimatePresence>
-        {phase === 6 && (
-          <motion.img
-            src="/images/image.png"
-            alt="Speed Streak"
-            className="absolute w-full h-auto object-cover pointer-events-none"
-            style={{ top: '25%', filter: 'blur(8px)', scaleX: 1.15, zIndex: 35 }}
-            initial={{ x: '120%', opacity: 0 }}
-            animate={{ x: '-120%', opacity: [0, 0.5, 0] }}
-            transition={{ duration: 0.7, ease: "linear" }}
-          />
-        )}
-      </AnimatePresence>
+      <img
+        ref={carRef}
+        src="/images/image.png"
+        alt="Speed Streak"
+        className="absolute w-full h-auto object-cover pointer-events-none opacity-0"
+        style={{ top: '25%', filter: 'blur(8px)', scaleX: 1.15, zIndex: 35, transform: 'translateX(120%)' }}
+      />
 
       {/* Ritesh Jha Text Reveal */}
-      <AnimatePresence>
-        {phase === 6 && (
-          <motion.div
-            className="absolute inset-0 flex flex-col items-center justify-center z-40 pointer-events-none"
-            initial={{ scale: 0.8, opacity: 0, filter: 'blur(10px)' }}
-            animate={{ scale: 1, opacity: 1, filter: 'blur(0px)' }}
-            transition={{ duration: 0.4, ease: "easeOut", delay: 0.35 }}
-          >
-            <h1 className="font-display font-black text-6xl sm:text-7xl md:text-8xl lg:text-9xl uppercase tracking-tight text-white">
-              Ritesh<br className="md:hidden"/> Jha
-            </h1>
-            <motion.p 
-              className="mt-4 font-mono text-sm md:text-base tracking-[0.35em] text-racing-red uppercase"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.8 }}
-            >
-              GP · 2026 SEASON
-            </motion.p>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.div>
+      <div
+        ref={textRef}
+        className="absolute inset-0 flex flex-col items-center justify-center z-40 pointer-events-none opacity-0"
+      >
+        <h1 className="font-display font-black text-6xl sm:text-7xl md:text-8xl lg:text-9xl uppercase tracking-tight text-white">
+          Ritesh<br className="md:hidden"/> Jha
+        </h1>
+        <p 
+          ref={subTextRef}
+          className="mt-4 font-mono text-sm md:text-base tracking-[0.35em] text-racing-red uppercase opacity-0"
+        >
+          GP · 2026 SEASON
+        </p>
+      </div>
+    </div>
   );
 }

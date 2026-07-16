@@ -1,41 +1,111 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useRef } from 'react';
+import { Typewriter } from 'react-simple-typewriter';
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Hero({ bgImage = 'https://upload.wikimedia.org/wikipedia/commons/4/4b/Lewis_Hamilton_2022_Austrian_Grand_Prix_%281%29.jpg', carImage = 'https://upload.wikimedia.org/wikipedia/commons/4/4b/Lewis_Hamilton_2022_Austrian_Grand_Prix_%281%29.jpg' }) {
+  const containerRef = useRef(null);
+  const codeBlockRef = useRef(null);
+  const headingRef = useRef(null);
+
+  useGSAP(() => {
+    // Orbs animation
+    gsap.to('.hero-orb-1', {
+      x: () => gsap.utils.random(-40, 40),
+      y: () => gsap.utils.random(-40, 40),
+      duration: 10,
+      repeat: -1,
+      yoyo: true,
+      ease: 'sine.inOut'
+    });
+    gsap.to('.hero-orb-2', {
+      x: () => gsap.utils.random(-40, 40),
+      y: () => gsap.utils.random(-40, 40),
+      duration: 12,
+      repeat: -1,
+      yoyo: true,
+      ease: 'sine.inOut'
+    });
+
+    // Heading wipe reveal
+    gsap.fromTo(headingRef.current, 
+      { clipPath: 'polygon(0 100%, 100% 100%, 100% 100%, 0% 100%)', y: 50 },
+      { clipPath: 'polygon(0 0%, 100% 0%, 100% 100%, 0% 100%)', y: 0, duration: 1.5, ease: 'power4.out', delay: 0.2 }
+    );
+
+    // Initial load animations
+    gsap.from('.hero-left-content', { opacity: 0, x: -50, duration: 0.8, ease: 'power2.out', stagger: 0.1 });
+    gsap.from('.hud-item', { opacity: 0, scale: 0.9, duration: 0.5, ease: 'back.out(1.5)', stagger: 0.1, delay: 0.6 });
+
+    // 3D Code Block scrub
+    gsap.to(codeBlockRef.current, {
+      scrollTrigger: {
+        trigger: containerRef.current,
+        start: "top top",
+        end: "bottom top",
+        scrub: true
+      },
+      rotateX: 25,
+      rotateY: -15,
+      scale: 0.8,
+      y: 100,
+      opacity: 0,
+      transformPerspective: 1000,
+      ease: "none"
+    });
+
+    // Button Hover Effects
+    const btns = gsap.utils.toArray('.hero-btn');
+    btns.forEach(btn => {
+      btn.addEventListener('mouseenter', () => gsap.to(btn, { scale: 1.05, duration: 0.3, ease: 'back.out(1.5)' }));
+      btn.addEventListener('mouseleave', () => gsap.to(btn, { scale: 1, duration: 0.3, ease: 'back.out(1.5)' }));
+      btn.addEventListener('mousedown', () => gsap.to(btn, { scale: 0.95, duration: 0.1 }));
+      btn.addEventListener('mouseup', () => gsap.to(btn, { scale: 1.05, duration: 0.3, ease: 'back.out(1.5)' }));
+    });
+  }, { scope: containerRef });
+
   return (
-    <section className="relative min-h-screen w-full overflow-hidden pt-24 md:pt-28" data-testid="hero-section" id="home">
+    <section ref={containerRef} className="relative min-h-screen w-full overflow-hidden pt-24 md:pt-28" data-testid="hero-section" id="home">
       <div className="absolute inset-0">
         <img alt="" aria-hidden="true" className="absolute inset-0 w-full h-full object-cover opacity-40" src={bgImage} style={{ filter: 'saturate(0.4) contrast(1.2)' }} />
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black"></div>
         <div className="absolute inset-0 carbon-fiber opacity-40"></div>
         <div className="absolute inset-0 grid-lines-anim opacity-30"></div>
         <div className="absolute inset-0 speed-streaks"></div>
-        <div className="absolute -left-32 top-1/3 h-96 w-96 rounded-full bg-racing-red/20 blur-[120px]"></div>
-        <div className="absolute right-0 bottom-1/4 h-96 w-96 rounded-full bg-electric-cyan/15 blur-[120px]"></div>
+        <div className="absolute -left-32 top-1/3 h-96 w-96 rounded-full bg-racing-red/20 blur-[120px] hero-orb-1"></div>
+        <div className="absolute right-0 bottom-1/4 h-96 w-96 rounded-full bg-electric-cyan/15 blur-[120px] hero-orb-2"></div>
       </div>
       <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 px-6 md:px-12 lg:px-20 pb-16 lg:pb-0 min-h-[calc(100vh-6rem)] items-center">
-        <motion.div 
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="col-span-1 lg:col-span-6 flex flex-col z-10"
-        >
+        <div className="col-span-1 lg:col-span-6 flex flex-col z-10 hero-left-content">
           <div className="flex items-center gap-3 mb-6">
             <span className="h-[2px] w-10 bg-racing-red"></span>
             <span className="font-mono text-[11px] tracking-[0.35em] text-racing-red uppercase" data-testid="hero-label">
               Full Stack Engineer · P01
             </span>
           </div>
-          <h1 className="font-display font-black text-6xl sm:text-7xl lg:text-8xl xl:text-9xl uppercase leading-[0.9] tracking-tight text-white" data-testid="hero-heading">
+          <h1 
+            ref={headingRef}
+            className="font-display font-black text-6xl sm:text-7xl lg:text-8xl xl:text-9xl uppercase leading-[0.9] tracking-tight text-white" 
+            data-testid="hero-heading"
+          >
             Ritesh<br/>
             <span className="text-transparent" style={{ WebkitTextStroke: '2px rgb(225,6,0)' }}>Jha</span>
           </h1>
           <h2 className="mt-6 font-heading text-2xl sm:text-3xl lg:text-4xl font-light text-white/90 max-w-xl leading-tight" data-testid="hero-subheading">
             Freelance web developer in Mumbai, building <span className="text-electric-cyan">ultra-fast</span> MERN stack web apps for startups across India.
           </h2>
-          <p className="mt-6 font-mono text-sm text-white/60 max-w-lg leading-relaxed" data-testid="hero-description">
-            I'm a freelance web developer based in Mumbai and Thane, working as a full-stack MERN developer — React on the front, Node.js and Express on the back, MongoDB underneath. I build custom websites and web applications for startups and small businesses across Maharashtra and India. Fast, clean, no bloat.
-          </p>
+          <div ref={codeBlockRef} className="mt-6 font-mono text-sm text-white/80 max-w-lg leading-relaxed min-h-[140px] whitespace-pre-wrap p-4 bg-black/40 border border-white/10" data-testid="hero-description">
+            <Typewriter
+              words={[`const developer = {\n  name: 'Ritesh Jha',\n  role: 'Full-Stack MERN',\n  base: 'Mumbai, India',\n  status: 'Ready to race',\n  mission: 'Fast, clean, no bloat'\n};`]}
+              loop={1}
+              cursor
+              cursorStyle='_'
+              typeSpeed={30}
+            />
+          </div>
           <div className="mt-8 grid grid-cols-3 gap-4 max-w-md">
             <div className="border-l border-white/10 pl-3">
               <div className="text-[10px] font-mono tracking-widest text-white/40 uppercase">Uptime</div>
@@ -51,13 +121,21 @@ export default function Hero({ bgImage = 'https://upload.wikimedia.org/wikipedia
             </div>
           </div>
           <div className="mt-10 flex flex-col sm:flex-row gap-4">
-            <a className="btn-race group inline-flex items-center justify-center gap-3 bg-racing-red text-white font-heading font-bold uppercase tracking-[0.25em] text-sm px-8 py-4 clip-slant border border-racing-red hover:shadow-[0_0_30px_var(--red-glow)] transition-shadow" data-testid="view-grand-prix-btn" href="#projects">
+            <a 
+              className="hero-btn btn-race group inline-flex items-center justify-center gap-3 bg-racing-red text-white font-heading font-bold uppercase tracking-[0.25em] text-sm px-8 py-4 clip-slant border border-racing-red hover:shadow-[0_0_30px_var(--red-glow)] transition-shadow" 
+              data-testid="view-grand-prix-btn" 
+              href="#projects"
+            >
               <span>View Grand Prix</span>
               <svg fill="none" height="18" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" width="18">
                 <path d="M5 12h14M13 6l6 6-6 6"></path>
               </svg>
             </a>
-            <a className="btn-race group inline-flex items-center justify-center gap-3 border border-white/30 text-white font-heading font-bold uppercase tracking-[0.25em] text-sm px-8 py-4 clip-slant hover:border-electric-cyan hover:text-electric-cyan hover:shadow-[0_0_25px_var(--cyan-glow)] transition-all" data-testid="enter-garage-btn" href="#skills">
+            <a 
+              className="hero-btn btn-race group inline-flex items-center justify-center gap-3 border border-white/30 text-white font-heading font-bold uppercase tracking-[0.25em] text-sm px-8 py-4 clip-slant hover:border-electric-cyan hover:text-electric-cyan hover:shadow-[0_0_25px_var(--cyan-glow)] transition-all" 
+              data-testid="enter-garage-btn" 
+              href="#skills"
+            >
               <svg fill="none" height="18" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" width="18">
                 <circle cx="12" cy="12" r="9"></circle>
                 <path d="M12 3v18M3 12h18"></path>
@@ -65,19 +143,16 @@ export default function Hero({ bgImage = 'https://upload.wikimedia.org/wikipedia
               <span>Enter Garage</span>
             </a>
           </div>
-        </motion.div>
+        </div>
         
-        <motion.div 
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-          className="col-span-1 lg:col-span-6 relative w-full h-full overflow-hidden min-h-[420px] lg:min-h-[560px]"
+        <div 
+          className="col-span-1 lg:col-span-6 relative w-full h-full overflow-hidden min-h-[420px] lg:min-h-[560px] hero-right-content"
         >
           <img alt="Ritesh Kumar Jha, freelance web developer Mumbai — MERN stack developer portfolio hero" className="absolute inset-0 w-full h-full object-cover" src="/images/image.png" />
           <div className="absolute inset-0 bg-gradient-to-l from-black/20 via-black/40 to-black/70"></div>
           <div className="absolute inset-0 pointer-events-none hidden md:block" data-testid="telemetry-hud">
             {/* Velocity */}
-            <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.6 }} className="absolute top-4 left-4 md:top-6 md:left-6 pointer-events-auto">
+            <div className="hud-item absolute top-4 left-4 md:top-6 md:left-6 pointer-events-auto">
               <div className="bg-black/60 backdrop-blur-md border border-white/10 clip-slant px-4 py-3 font-mono" data-testid="hud-speedometer">
                 <div className="text-[10px] tracking-widest text-electric-cyan uppercase">Velocity</div>
                 <div className="flex items-baseline gap-2">
@@ -88,17 +163,17 @@ export default function Hero({ bgImage = 'https://upload.wikimedia.org/wikipedia
                   <div className="absolute inset-y-0 left-0 bg-electric-cyan" style={{ width: '93.4286%' }}></div>
                 </div>
               </div>
-            </motion.div>
+            </div>
             {/* Gear */}
-            <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.7 }} className="absolute top-4 right-4 md:top-6 md:right-6 pointer-events-auto">
+            <div className="hud-item absolute top-4 right-4 md:top-6 md:right-6 pointer-events-auto">
               <div className="bg-black/60 backdrop-blur-md border border-white/10 clip-slant px-4 py-3 font-mono text-center min-w-[110px]" data-testid="hud-gear">
                 <div className="text-[10px] tracking-widest text-white/60 uppercase">Gear</div>
                 <div className="font-display text-5xl text-racing-red font-black leading-none">8</div>
                 <div className="text-[10px] text-white/50 mt-1"><span>12,800</span> RPM</div>
               </div>
-            </motion.div>
+            </div>
             {/* ERS */}
-            <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.8 }} className="absolute left-4 md:left-6 top-1/2 -translate-y-1/2 pointer-events-auto">
+            <div className="hud-item absolute left-4 md:left-6 top-1/2 -translate-y-1/2 pointer-events-auto">
               <div className="bg-black/60 backdrop-blur-md border border-white/10 clip-slant px-4 py-3 font-mono min-w-[180px]" data-testid="hud-ers">
                 <div className="flex items-center justify-between">
                   <span className="text-[10px] tracking-widest text-white/60 uppercase">ERS Deploy</span>
@@ -115,9 +190,9 @@ export default function Hero({ bgImage = 'https://upload.wikimedia.org/wikipedia
                   <span className="text-[10px] font-mono text-white/70 w-8 text-right">64%</span>
                 </div>
               </div>
-            </motion.div>
+            </div>
             {/* Tyres */}
-            <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.9 }} className="absolute right-4 md:right-6 top-1/2 -translate-y-1/2 pointer-events-auto">
+            <div className="hud-item absolute right-4 md:right-6 top-1/2 -translate-y-1/2 pointer-events-auto">
               <div className="bg-black/60 backdrop-blur-md border border-white/10 clip-slant px-4 py-3 font-mono min-w-[150px]" data-testid="hud-tyre">
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-[10px] tracking-widest text-white/60 uppercase">Tyres · Soft</span>
@@ -130,9 +205,9 @@ export default function Hero({ bgImage = 'https://upload.wikimedia.org/wikipedia
                   <div className="flex items-center justify-between border border-white/10 px-2 py-1"><span className="text-[10px] text-white/50">RR</span><span className="text-[11px] text-white font-bold">110°</span></div>
                 </div>
               </div>
-            </motion.div>
+            </div>
             {/* Fuel */}
-            <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 1.0 }} className="absolute bottom-4 left-4 md:bottom-6 md:left-6 pointer-events-auto">
+            <div className="hud-item absolute bottom-4 left-4 md:bottom-6 md:left-6 pointer-events-auto">
               <div className="bg-black/60 backdrop-blur-md border border-white/10 clip-slant px-4 py-3 font-mono" data-testid="hud-fuel">
                 <div className="flex items-center gap-6">
                   <div>
@@ -146,9 +221,9 @@ export default function Hero({ bgImage = 'https://upload.wikimedia.org/wikipedia
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </div>
             {/* Engine */}
-            <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 1.1 }} className="absolute bottom-4 right-4 md:bottom-6 md:right-6 pointer-events-auto">
+            <div className="hud-item absolute bottom-4 right-4 md:bottom-6 md:right-6 pointer-events-auto">
               <div className="bg-black/60 backdrop-blur-md border border-white/10 clip-slant px-4 py-3 font-mono" data-testid="hud-engine">
                 <div className="flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-emerald-400 hud-pulse"></span>
@@ -156,9 +231,9 @@ export default function Hero({ bgImage = 'https://upload.wikimedia.org/wikipedia
                 </div>
                 <div className="text-[10px] text-white/50 font-mono mt-1">PU · Mercedes M15</div>
               </div>
-            </motion.div>
+            </div>
           </div>
-        </motion.div>
+        </div>
       </div>
       <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 pointer-events-none">
         <span className="font-mono text-[10px] tracking-[0.4em] text-white/40 uppercase">Scroll · Sector 1</span>
