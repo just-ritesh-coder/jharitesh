@@ -1,25 +1,43 @@
 import React, { useState, useEffect, useRef } from 'react';
 
 const AudioPlayer = () => {
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(true);
   const audioRef = useRef(null);
 
   useEffect(() => {
-    // Attempt to autoplay
-    if (audioRef.current) {
-      audioRef.current.volume = 0.3; // Default volume
-      const playPromise = audioRef.current.play();
-      
-      if (playPromise !== undefined) {
-        playPromise.then(() => {
+    const startAudio = async () => {
+      if (audioRef.current) {
+        audioRef.current.volume = 0.3; // Default volume
+        try {
+          await audioRef.current.play();
           setIsPlaying(true);
-        }).catch(error => {
-          // Autoplay was prevented by browser (common behavior until user interaction)
-          console.log("Autoplay prevented by browser.");
-          setIsPlaying(false);
-        });
+        } catch (error) {
+          console.log("Autoplay prevented by browser. Waiting for first interaction...");
+          
+          // Force play on the very first user interaction if autoplay was blocked
+          const playOnInteraction = async () => {
+            if (audioRef.current) {
+              try {
+                await audioRef.current.play();
+                setIsPlaying(true);
+              } catch (e) {
+                console.error("Still blocked:", e);
+              }
+            }
+            // Remove listeners after first trigger
+            ['click', 'scroll', 'mousemove', 'touchstart'].forEach(event => {
+              document.removeEventListener(event, playOnInteraction);
+            });
+          };
+
+          ['click', 'scroll', 'mousemove', 'touchstart'].forEach(event => {
+            document.addEventListener(event, playOnInteraction, { once: true });
+          });
+        }
       }
-    }
+    };
+
+    startAudio();
   }, []);
 
   const togglePlay = () => {
