@@ -116,6 +116,26 @@ export default function Projects() {
         { name: 'React', score: 88, pct: '88%' }, { name: 'Node', score: 82, pct: '82%' },
         { name: 'Mongo', score: 78, pct: '78%' }, { name: 'Express', score: 85, pct: '85%' },
       ]
+    },
+    {
+      id: 'p4', title: 'CodeLive', position: 'P4', color: 'rgb(0,255,127)',
+      type: 'MERN · WebRTC', lap: '0.18s', metric: 'Live Collaboration',
+      description: 'Engineered a real-time collaborative coding platform with WebSocket-based live code synchronization and room-based access. Integrated WebRTC for peer-to-peer video calling and screen sharing; JWT authentication supported 50+ concurrent users. Optimized MongoDB chat schema, reducing query response time by 40%.',
+      link: 'https://code-live-nine.vercel.app/',
+      tech: [
+        { name: 'WebRTC', score: 95, pct: '95%' }, { name: 'Socket.io', score: 90, pct: '90%' },
+        { name: 'React', score: 88, pct: '88%' }, { name: 'Mongo', score: 85, pct: '85%' },
+      ]
+    },
+    {
+      id: 'p5', title: 'Anjusha', position: 'P5', color: 'rgb(219,39,119)',
+      type: 'E-commerce · React', lap: '0.28s', metric: 'Modern Indian Fashion',
+      description: 'An online store focused on Modern Indian fashion, offering a curated selection of ethnic and fusion wear. Built with React and optimized for a seamless shopping experience with high performance and responsive design.',
+      link: 'https://www.anjusha.in/',
+      tech: [
+        { name: 'React', score: 90, pct: '90%' }, { name: 'Tailwind', score: 85, pct: '85%' },
+        { name: 'Node', score: 80, pct: '80%' }, { name: 'Mongo', score: 75, pct: '75%' },
+      ]
     }
   ];
 

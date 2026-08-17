@@ -169,6 +169,73 @@ export default function About() {
                 </div>
               </div>
             </div>
+
+            {/* Fastest Lap — Featured Skill Highlight */}
+            <div className="about-card border border-purple-500/30 bg-gradient-to-r from-purple-900/20 to-black/40 backdrop-blur-md p-5 md:p-6 opacity-0 translate-y-8 relative overflow-hidden">
+              <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-purple-500 via-purple-400 to-transparent"></div>
+              <div className="absolute -right-10 -top-10 w-32 h-32 bg-purple-500/10 rounded-full blur-[60px]"></div>
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-6 h-6 rounded-full bg-purple-500/20 border border-purple-500/40 flex items-center justify-center">
+                  <div className="w-2 h-2 rounded-full bg-purple-400 animate-pulse"></div>
+                </div>
+                <span className="font-mono text-[11px] tracking-[0.3em] text-purple-400 uppercase">
+                  Fastest Lap
+                </span>
+              </div>
+              <div className="font-display text-2xl md:text-3xl font-black text-white uppercase leading-none">
+                MERN Stack
+              </div>
+              <div className="font-mono text-xs text-purple-300/70 mt-1">
+                Sub 2s load times · Scalable architecture · Real-time systems
+              </div>
+              <div className="flex items-center gap-4 mt-4">
+                <div className="flex-1 h-[3px] bg-white/10 rounded-full overflow-hidden">
+                  <div className="h-full w-[98%] bg-gradient-to-r from-purple-500 to-purple-300 rounded-full" style={{ width: '98%' }}></div>
+                </div>
+                <span className="font-mono text-xs text-purple-300 font-bold">98%</span>
+              </div>
+            </div>
+
+            {/* Team Principals — Tech Stack Grid */}
+            <div className="about-card border border-white/10 bg-black/40 backdrop-blur-md p-5 md:p-6 opacity-0 translate-y-8">
+              <div className="font-mono text-[11px] tracking-[0.3em] text-white/60 uppercase mb-4">
+                Team Principals · Tech Stack
+              </div>
+              <div className="grid grid-cols-3 sm:grid-cols-6 gap-3">
+                {[
+                  { name: 'React', icon: '⚛️', color: 'from-cyan-500/20 to-cyan-500/5', border: 'border-cyan-500/30', text: 'text-cyan-400' },
+                  { name: 'Node.js', icon: '🟢', color: 'from-green-500/20 to-green-500/5', border: 'border-green-500/30', text: 'text-green-400' },
+                  { name: 'MongoDB', icon: '🍃', color: 'from-emerald-500/20 to-emerald-500/5', border: 'border-emerald-500/30', text: 'text-emerald-400' },
+                  { name: 'Express', icon: '🚂', color: 'from-gray-400/20 to-gray-400/5', border: 'border-gray-400/30', text: 'text-gray-300' },
+                  { name: 'Tailwind', icon: '🎨', color: 'from-sky-500/20 to-sky-500/5', border: 'border-sky-500/30', text: 'text-sky-400' },
+                  { name: 'Socket.io', icon: '🔌', color: 'from-yellow-500/20 to-yellow-500/5', border: 'border-yellow-500/30', text: 'text-yellow-400' },
+                ].map((tech, i) => (
+                  <div
+                    key={i}
+                    className={`tech-stack-badge group flex flex-col items-center gap-2 p-3 rounded border ${tech.border} bg-gradient-to-b ${tech.color} hover:scale-110 hover:border-opacity-80 transition-all duration-300 cursor-default`}
+                  >
+                    <span className="text-xl group-hover:scale-125 transition-transform duration-300">{tech.icon}</span>
+                    <span className={`font-mono text-[9px] tracking-widest uppercase ${tech.text}`}>{tech.name}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Quick Stats Strip */}
+            <div className="about-card grid grid-cols-2 md:grid-cols-4 gap-3 opacity-0 translate-y-8">
+              {[
+                { value: '5+', label: 'Projects Shipped', accent: 'text-racing-red', border: 'border-racing-red/30' },
+                { value: '50+', label: 'Concurrent Users', accent: 'text-electric-cyan', border: 'border-electric-cyan/30' },
+                { value: '3+', label: 'Client Niches', accent: 'text-emerald-400', border: 'border-emerald-400/30' },
+                { value: '40%', label: 'Query Optimized', accent: 'text-purple-400', border: 'border-purple-400/30' },
+              ].map((stat, i) => (
+                <div key={i} className={`border ${stat.border} bg-black/40 backdrop-blur-md p-4 text-center hover:bg-white/5 transition-colors duration-300`}>
+                  <div className={`font-display text-2xl md:text-3xl font-black ${stat.accent}`}>{stat.value}</div>
+                  <div className="font-mono text-[9px] tracking-widest text-white/40 uppercase mt-1">{stat.name}{stat.label}</div>
+                </div>
+              ))}
+            </div>
+
           </div>
         </div>
       </div>
